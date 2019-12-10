@@ -1,0 +1,8 @@
+
+table, #bankTable {
+    border-collapse: collapse;
+}
+
+table, td, th, #bankTable {
+    border: 1px solid black;
+}
