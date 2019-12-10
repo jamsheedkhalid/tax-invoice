@@ -1,0 +1,56 @@
+
+table {
+    border-collapse: collapse;
+}
+table, th, td {
+    text-align: center;
+    border: 1px solid black;
+}
+th, td {
+    align-content: center;
+    padding: 15px;
+    text-align: left;
+}
+input, select {
+    max-width: 100px;
+    border: none;
+}
+select {
+    /* for Firefox */
+    -moz-appearance: none;
+    /* for Chrome */
+    -webkit-appearance: none;
+}
+
+/* For IE10 */
+select::-ms-expand {
+    display: none;
+}
+
+.background1stInstallment {
+    background-color: lightblue;
+}
+
+.backgroundGradeSelect {
+    background-color: lightcoral;
+}
+
+.background2ndInstallment {
+    background-color: lightgreen;
+}
+
+.background3rdInstallment {
+    background-color: lightpink;
+}
+
+.backgroundTotal {
+    background-color: lightgray;
+}
+
+.backgroundTuition {
+    background-color: lightcyan;
+}
+
+.backgroundMinimum {
+    background-color: white;
+}
