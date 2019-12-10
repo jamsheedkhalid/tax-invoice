@@ -170,7 +170,17 @@
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <td colspan="3">Tuition Fees</td>
+                                    <td colspan="3">Tuition Fees <br>
+                                        <i>
+                                            <small style="padding-left: 50px"> 1st Installment : 5000.00</small>
+                                            <br>
+                                            <small style="padding-left: 50px"> 2nd Installment : 8000.00</small>
+                                            <br>
+                                            <small style="padding-left: 50px"> 3nd Installment : 9000.00</small>
+                                        </i>
+
+
+                                    </td>
                                     <td align="right"> 40000</td>
                                     <td></td>
                                     <td></td>
@@ -186,25 +196,25 @@
                                 </tbody>
                             </table>
                             <div class="row" style="margin: 5px;">
-                                <div class="col-sm-9" style="border: solid black 1px; padding-top: 10px">
-                                    <u>Tuition Fee Description:</u>
-                                    <table class="">
-                                        <tr>
-                                            <td>1st Installment</td>
-                                            <td>:</td>
-                                            <td>5000.00</td>
-                                        </tr>
-                                        <tr>
-                                            <td>2nd Installment</td>
-                                            <td>:</td>
-                                            <td>8000.00</td>
-                                        </tr>
-                                        <tr>
-                                            <td>3nd Installment</td>
-                                            <td>:</td>
-                                            <td>9000.00</td>
-                                        </tr>
-                                    </table>
+                                <div class="col-sm-9" style="padding-top: 10px">
+                                    <!--                                    <u>Tuition Fee Description:</u>-->
+                                    <!--                                    <table class="">-->
+                                    <!--                                        <tr>-->
+                                    <!--                                            <td>1st Installment</td>-->
+                                    <!--                                            <td>:</td>-->
+                                    <!--                                            <td>5000.00</td>-->
+                                    <!--                                        </tr>-->
+                                    <!--                                        <tr>-->
+                                    <!--                                            <td>2nd Installment</td>-->
+                                    <!--                                            <td>:</td>-->
+                                    <!--                                            <td>8000.00</td>-->
+                                    <!--                                        </tr>-->
+                                    <!--                                        <tr>-->
+                                    <!--                                            <td>3nd Installment</td>-->
+                                    <!--                                            <td>:</td>-->
+                                    <!--                                            <td>9000.00</td>-->
+                                    <!--                                        </tr>-->
+                                    <!--                                    </table>-->
 
                                 </div>
                                 <div class="col-sm-3" style="border: solid black 1px;">
