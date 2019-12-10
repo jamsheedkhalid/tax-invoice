@@ -28,7 +28,7 @@
 
 </head>
 <body>
-<h1 align="center" style="padding-top: 10px"><u>TAX INVOICE</u></h1>
+<h1 align="center" style="padding-top: 10px; color: green"><u>TAX INVOICE</u></h1>
 
 <div class="col-10" id="searchBar">
     <div class="col-8">
@@ -103,7 +103,7 @@
                                         <td>: Mr/Mrs. John</td>
                                     </tr>
                                     <tr>
-                                        <td><b>Family Code</b></td>
+                                        <td><b>Parent ID</b></td>
                                         <td>: 12345</td>
                                     </tr>
                                     <tr>
@@ -185,11 +185,8 @@
                                 </tr>
                                 </tbody>
                             </table>
-
-
-                            <div class="row">
-                                <div class="col-sm-4" align='left'
-                                     style="border: solid black 1px; margin: 10px; padding: 5px; font-size: 14px">
+                            <div class="row" style="margin: 5px;">
+                                <div class="col-sm-9" style="border: solid black 1px; padding-top: 10px">
                                     <u>Tuition Fee Description:</u>
                                     <table class="">
                                         <tr>
@@ -208,9 +205,9 @@
                                             <td>9000.00</td>
                                         </tr>
                                     </table>
+
                                 </div>
-                                <div class="col-sm"></div>
-                                <div class="col-sm" align="right">
+                                <div class="col-sm-3" style="border: solid black 1px;">
                                     <table class="table table-bordered table-sm">
                                         <tr>
                                             <td>Total(AED)</td>
@@ -227,6 +224,7 @@
                                     </table>
                                 </div>
                             </div>
+
 
                             <div class="row">
                                 <div class="col-sm">

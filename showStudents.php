@@ -11,12 +11,12 @@ $sql= "SELECT DISTINCT
                  students.admission_no admission_no, students.familyid familyid,
                  guardians.first_name parent_name
             FROM students INNER JOIN guardians ON students.familyid = guardians.familyid
-            WHERE students.admission_no LIKE '7' 
-               OR  students.familyid LIKE '7' 
-               OR guardians.first_name LIKE '7'
-               OR students.first_name LIKE N'7%' 
-               OR students.middle_name LIKE N'7%' 
-               OR students.last_name LIKE N'7%' 
+            WHERE students.admission_no LIKE '$search' 
+               OR  students.familyid LIKE '$search' 
+               OR guardians.first_name LIKE '$search'
+               OR students.first_name LIKE N'$search%' 
+               OR students.middle_name LIKE N'$search%' 
+               OR students.last_name LIKE N'$search%' 
             ORDER BY students.familyid ASC";
 //echo $sql;
 $ExecQuery = MySQLi_query($conn, $sql);
