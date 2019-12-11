@@ -1,3 +1,4 @@
+
 <!doctype html>
 <head>
     <title>TAX INVOICE</title>
@@ -23,6 +24,8 @@
             src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.10/js/mdb.min.js"></script>
 
     <script src="js/print/print.min.js"></script>
+    <script src="js/generateInvoice.js"></script>
+    <script src="js/showStudents.js"></script>
     <link rel="stylesheet" type="text/css" href="js/print/print.min.css">
     <link rel="stylesheet" type="text/css" href="css/main.css">
 
@@ -100,15 +103,15 @@
                                 <table>
                                     <tr>
                                         <td><b>Name</b></td>
-                                        <td>: Mr/Mrs. John</td>
+                                        <td id="parent_name">: Mr/Mrs. John</td>
                                     </tr>
                                     <tr>
                                         <td><b>Parent ID</b></td>
-                                        <td>: 12345</td>
+                                        <td id="parent_id"></td>
                                     </tr>
                                     <tr>
                                         <td><b>Tel</b></td>
-                                        <td>: 050123456</td>
+                                        <td id="parent_tel"></td>
                                     </tr>
                                 </table>
 
@@ -122,7 +125,7 @@
                                     </tr>
                                     <tr>
                                         <td><b>Invoice Date</b></td>
-                                        <td>: 30.12.2019</td>
+                                        <td id="invoice_date">:</td>
                                     </tr>
                                 </table>
                             </div>
@@ -133,13 +136,13 @@
 
                             <div class="row">
                                 <div class="col-sm" align="left">
-                                    <b>Student: </b><label> 12345</label> - <label>Abdul Azeez</label>
+                                    <b>Student: </b><label id="student_id"></label> - <label id="student_name"></label>
                                 </div>
                                 <div class="col-sm" align="center">
-                                    <b>Grade: </b><label> GR 1 -2019</label>
+                                    <b>Grade: </b><label id="student_grade"></label>
                                 </div>
                                 <div class="col-sm" align="right">
-                                    <b>Academic Year: </b><label> AY 2019-2020</label>
+                                    <b>Academic Year: </b><label id="academic_year"></label>
                                 </div>
                             </div>
 
@@ -157,84 +160,61 @@
                                 <tbody>
                                 <tr>
                                     <td colspan="3">Uniform</td>
-                                    <td align="right">90</td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
+                                    <td align="right" id="uniform_fee"></td>
+                                    <td align="right">5</td>
+                                    <td align="right" id="uniform_vat"></td>
+                                    <td align="right" id="uniform_total"></td>
                                 </tr>
                                 <tr>
                                     <td colspan="3">Books</td>
-                                    <td align="right">1200</td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
+                                    <td align="right" id="book_fee"></td>
+                                    <td align="right">0</td>
+                                    <td align="right" id="book_vat">0</td>
+                                    <td align="right" id="book_total"></td>
                                 </tr>
                                 <tr>
                                     <td colspan="3">Tuition Fees <br>
                                         <i>
-                                            <small style="padding-left: 50px"> 1st Installment : 5000.00</small>
+                                            <small id="f_installment" style="padding-left: 50px"></small>
                                             <br>
-                                            <small style="padding-left: 50px"> 2nd Installment : 8000.00</small>
+                                            <small id="s_installment" style="padding-left: 50px"> 2nd Installment :
+                                                8000.00
+                                            </small>
                                             <br>
-                                            <small style="padding-left: 50px"> 3nd Installment : 9000.00</small>
+                                            <small id="t_installment" style="padding-left: 50px"> 3nd Installment :
+                                                9000.00
+                                            </small>
                                         </i>
 
 
                                     </td>
-                                    <td align="right"> 40000</td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
+                                    <td align="right" id="tuition_fee"></td>
+                                    <td align="right">0</td>
+                                    <td align="right" id="tuition_vat">0</td>
+                                    <td align="right" id="tuition_total"></td>
                                 </tr>
                                 <tr>
                                     <td colspan="3">Transportation</td>
-                                    <td align="right"> 1000</td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
+                                    <td align="right" id="transportation_fee"></td>
+                                    <td align="right">NA</td>
+                                    <td align="right" id="transportation_vat">-</td>
+                                    <td align="right" id="transportation_total"></td>
+                                </tr>
+
+                                <tr align="right">
+                                    <td colspan="6">Total (AED)</td>
+                                    <td align="right" id="total"></td>
+                                </tr>
+                                <tr align="right">
+                                    <td colspan="6">VAT Total (AED)</td>
+                                    <td align="right" id="vat_total"></td>
+                                </tr>
+                                <tr align="right">
+                                    <td colspan="6">Net Total (AED)</td>
+                                    <td align="right" id="net_total"></td>
                                 </tr>
                                 </tbody>
                             </table>
-                            <div class="row" style="margin: 5px;">
-                                <div class="col-sm-9" style="padding-top: 10px">
-                                    <!--                                    <u>Tuition Fee Description:</u>-->
-                                    <!--                                    <table class="">-->
-                                    <!--                                        <tr>-->
-                                    <!--                                            <td>1st Installment</td>-->
-                                    <!--                                            <td>:</td>-->
-                                    <!--                                            <td>5000.00</td>-->
-                                    <!--                                        </tr>-->
-                                    <!--                                        <tr>-->
-                                    <!--                                            <td>2nd Installment</td>-->
-                                    <!--                                            <td>:</td>-->
-                                    <!--                                            <td>8000.00</td>-->
-                                    <!--                                        </tr>-->
-                                    <!--                                        <tr>-->
-                                    <!--                                            <td>3nd Installment</td>-->
-                                    <!--                                            <td>:</td>-->
-                                    <!--                                            <td>9000.00</td>-->
-                                    <!--                                        </tr>-->
-                                    <!--                                    </table>-->
-
-                                </div>
-                                <div class="col-sm-3" style="border: solid black 1px;">
-                                    <table class="table table-bordered table-sm">
-                                        <tr>
-                                            <td>Total(AED)</td>
-                                            <td align="right">105000.00</td>
-                                        </tr>
-                                        <tr>
-                                            <td>VAT Total(AED)</td>
-                                            <td align="right">500.00</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Net Total(AED)</td>
-                                            <td align="right">105500.00</td>
-                                        </tr>
-                                    </table>
-                                </div>
-                            </div>
-
 
                             <div class="row">
                                 <div class="col-sm">
@@ -271,12 +251,43 @@
                                     </table>
                                 </div>
 
-                                <div class="col-sm">
-                                    One of three columns
+                                <div class="col-sm-8"
+                                     style="border-collapse: collapse; border: 1px solid black; font-size: 14px; padding: 10px; margin-top: 20px; margin-right: 20px">
+                                    <table>
+                                        <tr>
+                                            Payment can be done in CASH/CHEQUE drawn in favour of Al Sanawbar School or
+                                            through direct bank transfer
+                                        </tr>
+                                        <tr>
+                                            <p><br> </br>Notes: <br>
+                                                1. Please ensure that the above invoice amount is credited to our
+                                                account after deduction of all bank charges <br>
+                                                2. Kindly email student name, grade, Family ID and bank transfer</p>
+                                        </tr>
+                                    </table>
                                 </div>
                             </div>
 
 
+                        </div>
+
+                        <hr>
+                        <div align="center" class="row" style="margin-top: 100px; margin-bottom: 50px">
+                            <div class="col-sm">
+                                <i>
+                                    <small>Principal</small>
+                                </i>
+                                <br> <br>
+                                ______________________________
+                            </div>
+
+                            <div class="col-sm">
+                                <i>
+                                    <small>Accounts Officer</small>
+                                </i>
+                                <br> <br>
+                                ______________________________
+                            </div>
                         </div>
 
 
@@ -293,27 +304,4 @@
         </div>
     </div>
 </div>
-
-
-
-
-
-<script>
-    function showStudents(str) {
-        var xhttp;
-        if (str == "") {
-            document.getElementById("tableStudents").innerHTML = "<table style='height:300px; width:100%' class=table-bordered><tr><td style='padding:50px'> <div class='alert alert-danger' role='alert'><strong>No students found!</strong> Please search again.</div></td></tr></table>";
-            return;
-        }
-        xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function () {
-            if (this.readyState == 4 && this.status == 200) {
-                document.getElementById("tableStudents").innerHTML = this.responseText;
-            }
-        };
-        xhttp.open("GET", "showStudents.php?q=" + str, true);
-        xhttp.send();
-    }
-</script>
-
 </body>

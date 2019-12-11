@@ -9,14 +9,30 @@ $search = $_GET['q'];
 $sql= "SELECT DISTINCT
                  students.last_name en_name, students.first_name ar_name,
                  students.admission_no admission_no, students.familyid familyid,
-                 guardians.first_name parent_name
-            FROM students INNER JOIN guardians ON students.familyid = guardians.familyid
+                 guardians.first_name parent_name, guardians.mobile_phone parent_number,
+                 batches.name section, courses.course_name grade,
+                academic_years.name academic_year
+                    FROM students INNER JOIN guardians ON students.familyid = guardians.familyid
+                INNER JOIN
+                    batches ON students.batch_id = batches.id
+                INNER JOIN
+                    courses ON batches.course_id = courses.id
+                INNER JOIN 
+                        academic_years ON students.school_id = academic_years.school_id
             WHERE students.admission_no LIKE '$search' 
                OR  students.familyid LIKE '$search' 
                OR guardians.first_name LIKE '$search'
                OR students.first_name LIKE N'$search%' 
                OR students.middle_name LIKE N'$search%' 
                OR students.last_name LIKE N'$search%' 
+            AND (
+                courses.is_deleted !=1
+                 AND
+                batches.is_deleted !=1
+                AND 
+                academic_years.is_active = 1
+          )
+
             ORDER BY students.familyid ASC";
 //echo $sql;
 $ExecQuery = MySQLi_query($conn, $sql);
@@ -33,13 +49,29 @@ if ($ExecQuery->num_rows > 0) {
                                         </tr>
                                     </thead>";
     while ($row = $ExecQuery->fetch_assoc()) {
+        $data = array(
+            0 => $row['admission_no'],
+            1 => $row['en_name'],
+            2 => $row['parent_name'],
+            3 => $row['familyid'],
+            4 => $row['parent_number'],
+            5 => date("d-m-Y"),
+            6 => $row['grade'],
+            7 => $row['section'],
+            8 => $row['academic_year']
+
+        );
+
+        $admission = $row['admission_no'];
+        $name = $row['en_name'];
+
         echo"<tr><td>".++$si."</td>".
             "<td style='text-align:left'>".$row['parent_name']."</td>".
             "<td style='text-align:left'>".$row['en_name']."</td>".
             "<td style='text-align:right'>".$row['ar_name']."</td>".
             "<td>".$row['admission_no']."<br>". engtoarabic($row['admission_no'])."</td>".
             "<td>".$row['familyid']."<br>". engtoarabic($row['familyid'])."</td>"
-            ."<td><button title='Generate Tax Invoice' onclick='generateFee(this.value)' data-toggle='modal' value=". $row['familyid']." data-target='#invoiceModalCenter' class='btn btn-danger btn-sm'>Generate Invoice</button>"
+            . "<td><button title='Generate Tax Invoice' onclick='generateInvoice( " . json_encode($data) . " )' data-toggle='modal' value=" . $row['en_name'] . " data-target='#invoiceModalCenter' class='btn btn-danger btn-sm'>Generate Invoice</button>"
             . "</td></tr>";
 
     }
@@ -57,3 +89,5 @@ function engtoarabic($str){
     $str = str_replace($western_arabic, $eastern_arabic, $str);
     return $str;
 }
+
+
