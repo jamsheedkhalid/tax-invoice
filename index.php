@@ -69,7 +69,7 @@
             </div>
             <div class="modal-body" id="invoicePrint">
                 <div class="container"  >
-                    <div style="border: solid black 1px; padding: 5px">
+                    <div style="border: solid black 1px; padding: 5px; height: max-content">
                         <div class="row " style="padding: 20px" >
                             <table style="max-width: 100%">
                                 <tr>
@@ -95,7 +95,7 @@
                                             <table align="right">
                                     <tr><td align="right">
                                             <h2 style="color: green;"><u><b>TAX INVOICE</b></u></h2>
-                                            <h6 id="trn">TRN:10000002342345</h6>
+                                            <h6 id="trn">TRN:100270764200003</h6>
                                         </td></tr>
                                 </table>
                             </div>
@@ -132,7 +132,6 @@
                                             <table class="table table-borderless table-sm">
 
                                                 <tr>
-                                                    <br><br>
                                         <td><b>Invoice No</b></td>
                                         <td>: 123456</td>
                                     </tr>
@@ -163,7 +162,7 @@
                                     </td>
                                     <td>
                                         <div class="col" align="right">
-                                            <b>AY: </b><label id="academic_year"></label>
+                                            <b>AY: </b><label> 2019 - 2020</label>
                                 </div>
                                     </td>
                                 </tr>
@@ -192,20 +191,18 @@
                                     <td class="feehead" colspan="3">Books</td>
                                     <td class="feehead" align="right" id="book_fee"></td>
                                     <td class="feehead" align="right" id="book_vat">0</td>
-                                    <td class="feehead" align="right" id="book_total"></td>
                                     <td class="feehead" align="right">0</td>
+                                    <td class="feehead" align="right" id="book_total"></td>
                                 </tr>
                                 <tr>
                                     <td class="feehead" colspan="3">Tuition Fees <br>
                                         <i>
                                             <small id="f_installment" style="padding-left: 50px"></small>
                                             <br>
-                                            <small id="s_installment" style="padding-left: 50px"> 2nd Installment :
-                                                8000.00
+                                            <small id="s_installment" style="padding-left: 50px">
                                             </small>
                                             <br>
-                                            <small id="t_installment" style="padding-left: 50px"> 3nd Installment :
-                                                9000.00
+                                            <small id="t_installment" style="padding-left: 50px">
                                             </small>
                                         </i>
 
@@ -284,14 +281,19 @@
                                                  style="border-collapse: collapse; font-size: 14px; padding: 10px; margin-top: 20px; margin-right: 20px">
                                                 <table class="table table-sm table-borderless ">
                                                     <tr>
+                                                        <td>
                                                         Payment can be done in CASH/CHEQUE drawn in favour of Al Sanawbar School or
                                                         through direct bank transfer
+                                                        </td>
                                                     </tr>
                                                     <tr>
-                                                        <p><br> </br>Notes: <br>
+                                                        <td>
+                                                            <br>
+                                                            <p>Notes: <br>
                                                             1. Please ensure that the above invoice amount is credited to our
                                                             account after deduction of all bank charges <br>
                                                             2. Kindly email student name, grade, Family ID and bank transfer</p>
+                                                        </td>
                                                     </tr>
                                                 </table>
                                             </div>
@@ -316,6 +318,7 @@
                                             ___________________________
                             </div>
                                     </td>
+                                    <td width="200px;"></td>
                                     <td>
 
                                         <div class="col-sm" style="min-width: 50%!important;" align="center">
@@ -345,23 +348,5 @@
     </div>
 </div>
 
-<script>
-    function PrintElem(elem) {
-        var mywindow = window.open('', 'PRINT', 'height=400,width=600');
 
-        mywindow.document.write('<html><head><title>' + document.title + '</title>');
-        mywindow.document.write('</head><body >');
-        mywindow.document.write('<h1>' + document.title + '</h1>');
-        mywindow.document.write(document.getElementById(elem).innerHTML);
-        mywindow.document.write('</body></html>');
-
-        mywindow.document.close(); // necessary for IE >= 10
-        mywindow.focus(); // necessary for IE >= 10*/
-
-        mywindow.print();
-        mywindow.close();
-
-        return true;
-    }
-</script>
 </body>

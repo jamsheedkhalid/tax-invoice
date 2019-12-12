@@ -7,7 +7,7 @@ function generateInvoice(data) {
     document.getElementById('parent_tel').innerHTML = ": " + data[4];
     document.getElementById('invoice_date').innerText = ": " + data[5];
     document.getElementById('student_grade').innerText = data[6] + " - " + data[7];
-    document.getElementById('academic_year').innerText = data[8];
+    // document.getElementById('student_grade').innerText = data[6];
 
     switch (data[6]) {
         case ' KG1 ':

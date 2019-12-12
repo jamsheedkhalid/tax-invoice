@@ -1,24 +1,19 @@
 
-
-
 <?php
 include('config/dbConfig.php');
 $search = $_GET['q'];
-
 
 $sql= "SELECT DISTINCT
                  students.last_name en_name, students.first_name ar_name,
                  students.admission_no admission_no, students.familyid familyid,
                  guardians.first_name parent_name, guardians.mobile_phone parent_number,
-                 batches.name section, courses.course_name grade,
-                academic_years.name academic_year
+                 batches.name section, courses.course_name grade
                     FROM students INNER JOIN guardians ON students.familyid = guardians.familyid
                 INNER JOIN
                     batches ON students.batch_id = batches.id
                 INNER JOIN
                     courses ON batches.course_id = courses.id
-                INNER JOIN 
-                        academic_years ON students.school_id = academic_years.school_id
+               
             WHERE students.admission_no LIKE '$search' 
                OR  students.familyid LIKE '$search' 
                OR guardians.first_name LIKE '$search'
@@ -29,10 +24,7 @@ $sql= "SELECT DISTINCT
                 courses.is_deleted !=1
                  AND
                 batches.is_deleted !=1
-                AND 
-                academic_years.is_active = 1
-          )
-
+              )
             ORDER BY students.familyid ASC";
 //echo $sql;
 $ExecQuery = MySQLi_query($conn, $sql);
@@ -43,6 +35,7 @@ if ($ExecQuery->num_rows > 0) {
                                             <th>Parent </th>
                                             <th>Name </th>
                                             <th style='font-size:20px'>اسم</th>
+                                            <th>Grade</th>
                                             <th>Admission Number <br> رقم القبول</th>
                                             <th>Family ID <br> رقم العائلة</th>
                                             <th>Action <br> عمل</th>
@@ -58,7 +51,6 @@ if ($ExecQuery->num_rows > 0) {
             5 => date("d-m-Y"),
             6 => $row['grade'],
             7 => $row['section'],
-            8 => $row['academic_year']
 
         );
 
@@ -69,6 +61,7 @@ if ($ExecQuery->num_rows > 0) {
             "<td style='text-align:left'>".$row['parent_name']."</td>".
             "<td style='text-align:left'>".$row['en_name']."</td>".
             "<td style='text-align:right'>".$row['ar_name']."</td>".
+            "<td style='text-align:left'>" . $row['grade'] . " - " . $row['section'] . "</td>" .
             "<td>".$row['admission_no']."<br>". engtoarabic($row['admission_no'])."</td>".
             "<td>".$row['familyid']."<br>". engtoarabic($row['familyid'])."</td>"
             . "<td><button title='Generate Tax Invoice' onclick='generateInvoice( " . json_encode($data) . " )' data-toggle='modal' value=" . $row['en_name'] . " data-target='#invoiceModalCenter' class='btn btn-danger btn-sm'>Generate Invoice</button>"
