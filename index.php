@@ -67,12 +67,15 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <div class="modal-body" id="invoicePrint" >
+            <div class="modal-body" id="invoicePrint">
                 <div class="container"  >
                     <div style="border: solid black 1px; padding: 5px">
                         <div class="row " style="padding: 20px" >
-                            <div class="col-sm">
-                                <table>
+                            <table style="max-width: 100%">
+                                <tr>
+                                    <td>
+                                        <div class="col">
+                                            <table>
                                     <tr>
                                         <td>
                                             <img src="assets/sanawbar-logo.jpeg" width="80px" height="80px" style="margin-right: 10px"></td>
@@ -84,23 +87,30 @@
                                         </td></tr>
                                 </table>
                             </div>
-                            <div class="col-sm">
-                            </div>
-                            <div class="col-sm">
+                                    </td>
+
+                                    <td>
+                                        <div class="col " id="taxInvoice" style="min-width: 50em;">
                                 <br>
-                                <table align="right" >
+                                            <table align="right">
                                     <tr><td align="right">
-                                            <h3 style="color: green;"><u><b>TAX INVOICE</b></u></h3>
-                                            <h16>TRN:10000002342345</h16>
+                                            <h2 style="color: green;"><u><b>TAX INVOICE</b></u></h2>
+                                            <h6 id="trn">TRN:10000002342345</h6>
                                         </td></tr>
                                 </table>
                             </div>
+                                    </td>
+                                </tr>
+                            </table>
                         </div>
                         <hr>
                         <div class="row" style="margin: 5px;">
-                            <div class="col-sm-9" style="border: solid black 1px; padding-top: 10px">
+                            <table class="table table-bordered table-sm" id="billInfo" style="min-width: 100%; ">
+                                <tr>
+                                    <td>
+                                        <div class="col" style="padding-top: 10px; ">
                                 Bill To <br>
-                                <table>
+                                            <table class="table table-borderless">
                                     <tr>
                                         <td><b>Name</b></td>
                                         <td id="parent_name">: Mr/Mrs. John</td>
@@ -116,10 +126,13 @@
                                 </table>
 
                             </div>
-                            <div class="col-sm-3" style="border: solid black 1px;">
-                                <table>
-                                    <br><br>
-                                    <tr>
+                                    </td>
+                                    <td>
+                                        <div class="col" style="">
+                                            <table class="table table-borderless">
+
+                                                <tr>
+                                                    <br><br>
                                         <td><b>Invoice No</b></td>
                                         <td>: 123456</td>
                                     </tr>
@@ -129,51 +142,61 @@
                                     </tr>
                                 </table>
                             </div>
+                                    </td>
+                                </tr>
+                            </table>
                         </div>
 
                         <div style="margin: 5px; padding-top: 25px">
 
-
-                            <div class="row">
-                                <div class="col-sm" align="left">
+                            <table>
+                                <tr>
+                                    <td>
+                                        <div class="col" align="left">
                                     <b>Student: </b><label id="student_id"></label> - <label id="student_name"></label>
                                 </div>
-                                <div class="col-sm" align="center">
+                                    </td>
+                                    <td>
+                                        <div class="col" align="center">
                                     <b>Grade: </b><label id="student_grade"></label>
                                 </div>
-                                <div class="col-sm" align="right">
-                                    <b>Academic Year: </b><label id="academic_year"></label>
+                                    </td>
+                                    <td>
+                                        <div class="col" align="right">
+                                            <b>AY: </b><label id="academic_year"></label>
                                 </div>
-                            </div>
+                                    </td>
+                                </tr>
+                            </table>
 
 
-                            <table class="table table-bordered table-sm">
+                            <table class="table table-bordered table-sm" id="feeTable" style="min-width: 100%">
                                 <thead>
                                 <tr>
-                                    <th scope="col" colspan="3">Particular</th>
-                                    <th scope="col">Amount</th>
-                                    <th scope="col">VAT(%)</th>
-                                    <th scope="col">VAT Amount</th>
-                                    <th scope="col">Total</th>
+                                    <th class="feehead" scope="col" colspan="3">Particular</th>
+                                    <th class="feehead" scope="col">Amount</th>
+                                    <th class="feehead" scope="col">VAT(%)</th>
+                                    <th class="feehead" scope="col">VAT Amount</th>
+                                    <th class="feehead" scope="col">Total</th>
                                 </tr>
                                 </thead>
                                 <tbody>
                                 <tr>
-                                    <td colspan="3">Uniform</td>
-                                    <td align="right" id="uniform_fee"></td>
-                                    <td align="right">5</td>
-                                    <td align="right" id="uniform_vat"></td>
-                                    <td align="right" id="uniform_total"></td>
+                                    <td class="feehead" colspan="3">Uniform</td>
+                                    <td class="feehead" align="right" id="uniform_fee"></td>
+                                    <td class="feehead" align="right">5</td>
+                                    <td class="feehead" align="right" id="uniform_vat"></td>
+                                    <td class="feehead" align="right" id="uniform_total"></td>
                                 </tr>
                                 <tr>
-                                    <td colspan="3">Books</td>
-                                    <td align="right" id="book_fee"></td>
-                                    <td align="right">0</td>
-                                    <td align="right" id="book_vat">0</td>
-                                    <td align="right" id="book_total"></td>
+                                    <td class="feehead" colspan="3">Books</td>
+                                    <td class="feehead" align="right" id="book_fee"></td>
+                                    <td class="feehead" align="right" id="book_vat">0</td>
+                                    <td class="feehead" align="right" id="book_total"></td>
+                                    <td class="feehead" align="right">0</td>
                                 </tr>
                                 <tr>
-                                    <td colspan="3">Tuition Fees <br>
+                                    <td class="feehead" colspan="3">Tuition Fees <br>
                                         <i>
                                             <small id="f_installment" style="padding-left: 50px"></small>
                                             <br>
@@ -188,30 +211,30 @@
 
 
                                     </td>
-                                    <td align="right" id="tuition_fee"></td>
-                                    <td align="right">0</td>
-                                    <td align="right" id="tuition_vat">0</td>
-                                    <td align="right" id="tuition_total"></td>
+                                    <td class="feehead" align="right" id="tuition_fee"></td>
+                                    <td class="feehead" align="right">0</td>
+                                    <td class="feehead" align="right" id="tuition_vat">0</td>
+                                    <td class="feehead" align="right" id="tuition_total"></td>
                                 </tr>
                                 <tr>
-                                    <td colspan="3">Transportation</td>
-                                    <td align="right" id="transportation_fee"></td>
-                                    <td align="right">NA</td>
-                                    <td align="right" id="transportation_vat">-</td>
-                                    <td align="right" id="transportation_total"></td>
+                                    <td class="feehead" colspan="3">Transportation</td>
+                                    <td class="feehead" align="right" id="transportation_fee"></td>
+                                    <td class="feehead" align="right">NA</td>
+                                    <td class="feehead" align="right" id="transportation_vat">-</td>
+                                    <td class="feehead" align="right" id="transportation_total"></td>
                                 </tr>
 
                                 <tr align="right">
-                                    <td colspan="6">Total (AED)</td>
-                                    <td align="right" id="total"></td>
+                                    <td class="feehead" colspan="6">Total (AED)</td>
+                                    <td class="feehead" align="right" id="total"></td>
                                 </tr>
                                 <tr align="right">
-                                    <td colspan="6">VAT Total (AED)</td>
-                                    <td align="right" id="vat_total"></td>
+                                    <td class="feehead" colspan="6">VAT Total (AED)</td>
+                                    <td class="feehead" align="right" id="vat_total"></td>
                                 </tr>
                                 <tr align="right">
-                                    <td colspan="6">Net Total (AED)</td>
-                                    <td align="right" id="net_total"></td>
+                                    <td class="feehead" colspan="6">Net Total (AED)</td>
+                                    <td class="feehead" align="right" id="net_total"></td>
                                 </tr>
                                 </tbody>
                             </table>
@@ -297,11 +320,31 @@
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 <button type="button" class="btn btn-primary" id='printbtn'
-                        onclick="printJS({printable: 'invoicePrint', type: 'html', header: null, documentTitle: null })">
+                        onclick="printJS({printable: 'invoicePrint',css: 'css/print.css', type: 'html', showModal: true,targetStyles: '*'});">
                     PRINT
                 </button>
             </div>
         </div>
     </div>
 </div>
+
+<script>
+    function PrintElem(elem) {
+        var mywindow = window.open('', 'PRINT', 'height=400,width=600');
+
+        mywindow.document.write('<html><head><title>' + document.title + '</title>');
+        mywindow.document.write('</head><body >');
+        mywindow.document.write('<h1>' + document.title + '</h1>');
+        mywindow.document.write(document.getElementById(elem).innerHTML);
+        mywindow.document.write('</body></html>');
+
+        mywindow.document.close(); // necessary for IE >= 10
+        mywindow.focus(); // necessary for IE >= 10*/
+
+        mywindow.print();
+        mywindow.close();
+
+        return true;
+    }
+</script>
 </body>

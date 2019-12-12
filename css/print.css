@@ -1,56 +1,31 @@
 
-table {
+#feeTable {
     border-collapse: collapse;
 }
-table, th, td {
-    text-align: center;
+
+#feeTable {
     border: 1px solid black;
 }
-th, td {
-    align-content: center;
-    padding: 15px;
-    text-align: left;
-}
-input, select {
-    max-width: 100px;
-    border: none;
-}
-select {
-    /* for Firefox */
-    -moz-appearance: none;
-    /* for Chrome */
-    -webkit-appearance: none;
+
+/*}*/
+/*#feeTable{*/
+/*    align-content: center;*/
+/*    padding: 15px;*/
+/*    text-align: left;*/
+/*}*/
+
+.feehead {
+    border: 1px solid black;
+    padding-right: 5px;
 }
 
-/* For IE10 */
-select::-ms-expand {
-    display: none;
+#trn {
+    font-size: 14px;
 }
 
-.background1stInstallment {
-    background-color: lightblue;
+#taxInvoice {
+    min-width: 25em !important;
 }
 
-.backgroundGradeSelect {
-    background-color: lightcoral;
-}
 
-.background2ndInstallment {
-    background-color: lightgreen;
-}
 
-.background3rdInstallment {
-    background-color: lightpink;
-}
-
-.backgroundTotal {
-    background-color: lightgray;
-}
-
-.backgroundTuition {
-    background-color: lightcyan;
-}
-
-.backgroundMinimum {
-    background-color: white;
-}
