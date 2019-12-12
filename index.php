@@ -110,7 +110,7 @@
                                     <td>
                                         <div class="col" style="padding-top: 10px; ">
                                 Bill To <br>
-                                            <table class="table table-borderless">
+                                            <table class="table table-borderless table-sm">
                                     <tr>
                                         <td><b>Name</b></td>
                                         <td id="parent_name">: Mr/Mrs. John</td>
@@ -129,7 +129,7 @@
                                     </td>
                                     <td>
                                         <div class="col" style="">
-                                            <table class="table table-borderless">
+                                            <table class="table table-borderless table-sm">
 
                                                 <tr>
                                                     <br><br>
@@ -239,78 +239,95 @@
                                 </tbody>
                             </table>
 
-                            <div class="row">
-                                <div class="col-sm">
+                            <div class="row" style="padding: 20px">
+                                <table class="table table-bordered table-sm ">
+                                    <tr>
+                                        <td>
+                                            <div class="col tableBorder">
                                     Bank Details: <br>
-                                    <table style="border-collapse: collapse; border: 1px solid black; font-size: 14px">
+                                                <table class="table table-sm table-borderless "
+                                                       style="border-collapse: collapse;font-size: 14px; min-width: max-content">
                                         <tr>
                                             <td>Bank Name</td>
-                                            <td>Bank of Sharjah</td>
+                                            <td>: Bank of Sharjah</td>
                                         </tr>
                                         <tr>
                                             <td>Branch</td>
-                                            <td>Al Ain</td>
+                                            <td>: Al Ain</td>
                                         </tr>
                                         <tr>
                                             <td>Account Name</td>
-                                            <td>Al Sanawbar School</td>
+                                            <td>: Al Sanawbar School</td>
                                         </tr>
                                         <tr>
                                             <td>Account No</td>
-                                            <td>123456987</td>
+                                            <td>: 01106-357005</td>
                                         </tr>
                                         <tr>
                                             <td>IBAN</td>
-                                            <td>AES1458789658</td>
+                                            <td>: AED900120000001106357005</td>
                                         </tr>
                                         <tr>
                                             <td>Currency</td>
-                                            <td>AED</td>
+                                            <td>: AED</td>
                                         </tr>
                                         <tr>
                                             <td>Swift Code</td>
-                                            <td>SHA21231</td>
+                                            <td>: SHARAEAS</td>
                                         </tr>
                                     </table>
                                 </div>
+                                        </td>
+                                        <td>
 
-                                <div class="col-sm-8"
-                                     style="border-collapse: collapse; border: 1px solid black; font-size: 14px; padding: 10px; margin-top: 20px; margin-right: 20px">
-                                    <table>
-                                        <tr>
-                                            Payment can be done in CASH/CHEQUE drawn in favour of Al Sanawbar School or
-                                            through direct bank transfer
-                                        </tr>
-                                        <tr>
-                                            <p><br> </br>Notes: <br>
-                                                1. Please ensure that the above invoice amount is credited to our
-                                                account after deduction of all bank charges <br>
-                                                2. Kindly email student name, grade, Family ID and bank transfer</p>
-                                        </tr>
-                                    </table>
-                                </div>
+                                            <div class="col  notes"
+                                                 style="border-collapse: collapse; font-size: 14px; padding: 10px; margin-top: 20px; margin-right: 20px">
+                                                <table class="table table-sm table-borderless ">
+                                                    <tr>
+                                                        Payment can be done in CASH/CHEQUE drawn in favour of Al Sanawbar School or
+                                                        through direct bank transfer
+                                                    </tr>
+                                                    <tr>
+                                                        <p><br> </br>Notes: <br>
+                                                            1. Please ensure that the above invoice amount is credited to our
+                                                            account after deduction of all bank charges <br>
+                                                            2. Kindly email student name, grade, Family ID and bank transfer</p>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
                             </div>
 
 
                         </div>
 
                         <hr>
-                        <div align="center" class="row" style="margin-top: 100px; margin-bottom: 50px">
-                            <div class="col-sm">
+                        <div align="center" class="row" style="margin-top: 50px; margin-bottom: 50px">
+                            <table align="center">
+                                <tr>
+                                    <td>
+                                        <div class="col-sm" style="min-width: 50%!important;" align="center">
                                 <i>
                                     <small>Principal</small>
                                 </i>
                                 <br> <br>
-                                ______________________________
+                                            ___________________________
                             </div>
+                                    </td>
+                                    <td>
 
-                            <div class="col-sm">
-                                <i>
-                                    <small>Accounts Officer</small>
-                                </i>
-                                <br> <br>
-                                ______________________________
-                            </div>
+                                        <div class="col-sm" style="min-width: 50%!important;" align="center">
+                                            <i>
+                                                <small>Accounts Officer</small>
+                                            </i>
+                                            <br> <br>
+                                            ___________________________
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
                         </div>
 
 
