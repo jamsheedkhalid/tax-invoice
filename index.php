@@ -69,7 +69,7 @@
             </div>
             <div class="modal-body" id="invoicePrint">
                 <div class="container"  >
-                    <div style="border: solid black 1px; padding: 5px; height: max-content">
+                    <div style="border: solid black 1px; padding: 5px; he">
                         <div class="row " style="padding: 20px" >
                             <table style="max-width: 100%">
                                 <tr>
@@ -90,7 +90,7 @@
                                     </td>
 
                                     <td>
-                                        <div class="col " id="taxInvoice" style="min-width: 50em;">
+                                        <div class="col " id="taxInvoice" style="min-width: 45em;">
                                 <br>
                                             <table align="right">
                                     <tr><td align="right">
