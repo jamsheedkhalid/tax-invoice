@@ -199,7 +199,7 @@ if ($result->num_rows > 0) {
                                 <tr>
                                     <td class="feehead" colspan="3">Transportation</td>
                                     <td class="feehead" align="right" id="transportation_fee">' . $bus . '</td>
-                                    <td class="feehead" align="right">NA</td>
+                                    <td class="feehead" align="right">EXE</td>
                                     <td class="feehead" align="right" id="transportation_vat">-</td>
                                     <td class="feehead" align="right" id="transportation_total">' . $bus . '</td>
                                 </tr>

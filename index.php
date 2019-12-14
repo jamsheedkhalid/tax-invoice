@@ -197,7 +197,8 @@
                                                 <table class="table table-sm table-borderless ">
                                                     <tr>
                                                         <td>
-                                                        Payment can be done in CASH/CHEQUE drawn in favour of Al Sanawbar School or
+                                                            Payment can be done in CASH/VISA/CHEQUE drawn in favour of
+                                                            Al Sanawbar School or
                                                         through direct bank transfer
                                                         </td>
                                                     </tr>
