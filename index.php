@@ -25,6 +25,7 @@
 
     <script src="js/print/print.min.js"></script>
     <script src="js/generateInvoice.js"></script>
+    <script src="js/generateInvoiceAll.js"></script>
     <script src="js/showStudents.js"></script>
     <link rel="stylesheet" type="text/css" href="js/print/print.min.css">
     <link rel="stylesheet" type="text/css" href="css/main.css">
@@ -147,95 +148,9 @@
                         </div>
 
                         <div style="margin: 5px; padding-top: 25px">
+                            <div id="invoiceTable">
 
-                            <table>
-                                <tr>
-                                    <td>
-                                        <div class="col" align="left">
-                                    <b>Student: </b><label id="student_id"></label> - <label id="student_name"></label>
-                                </div>
-                                    </td>
-                                    <td>
-                                        <div class="col" align="center">
-                                    <b>Grade: </b><label id="student_grade"></label>
-                                </div>
-                                    </td>
-                                    <td>
-                                        <div class="col" align="right">
-                                            <b>AY: </b><label> 2019 - 2020</label>
-                                </div>
-                                    </td>
-                                </tr>
-                            </table>
-
-
-                            <table class="table table-bordered table-sm" id="feeTable" style="min-width: 100%">
-                                <thead>
-                                <tr>
-                                    <th class="feehead" scope="col" colspan="3">Particular</th>
-                                    <th class="feehead" scope="col">Amount</th>
-                                    <th class="feehead" scope="col">VAT(%)</th>
-                                    <th class="feehead" scope="col">VAT Amount</th>
-                                    <th class="feehead" scope="col">Total</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <tr>
-                                    <td class="feehead" colspan="3">Uniform</td>
-                                    <td class="feehead" align="right" id="uniform_fee"></td>
-                                    <td class="feehead" align="right">5</td>
-                                    <td class="feehead" align="right" id="uniform_vat"></td>
-                                    <td class="feehead" align="right" id="uniform_total"></td>
-                                </tr>
-                                <tr>
-                                    <td class="feehead" colspan="3">Books</td>
-                                    <td class="feehead" align="right" id="book_fee"></td>
-                                    <td class="feehead" align="right" id="book_vat">0</td>
-                                    <td class="feehead" align="right">0</td>
-                                    <td class="feehead" align="right" id="book_total"></td>
-                                </tr>
-                                <tr>
-                                    <td class="feehead" colspan="3">Tuition Fees <br>
-                                        <i>
-                                            <small id="f_installment" style="padding-left: 50px"></small>
-                                            <br>
-                                            <small id="s_installment" style="padding-left: 50px">
-                                            </small>
-                                            <br>
-                                            <small id="t_installment" style="padding-left: 50px">
-                                            </small>
-                                        </i>
-
-
-                                    </td>
-                                    <td class="feehead" align="right" id="tuition_fee"></td>
-                                    <td class="feehead" align="right">0</td>
-                                    <td class="feehead" align="right" id="tuition_vat">0</td>
-                                    <td class="feehead" align="right" id="tuition_total"></td>
-                                </tr>
-                                <tr>
-                                    <td class="feehead" colspan="3">Transportation</td>
-                                    <td class="feehead" align="right" id="transportation_fee"></td>
-                                    <td class="feehead" align="right">NA</td>
-                                    <td class="feehead" align="right" id="transportation_vat">-</td>
-                                    <td class="feehead" align="right" id="transportation_total"></td>
-                                </tr>
-
-                                <tr align="right">
-                                    <td class="feehead" colspan="6">Total (AED)</td>
-                                    <td class="feehead" align="right" id="total"></td>
-                                </tr>
-                                <tr align="right">
-                                    <td class="feehead" colspan="6">VAT Total (AED)</td>
-                                    <td class="feehead" align="right" id="vat_total"></td>
-                                </tr>
-                                <tr align="right">
-                                    <td class="feehead" colspan="6">Net Total (AED)</td>
-                                    <td class="feehead" align="right" id="net_total"></td>
-                                </tr>
-                                </tbody>
-                            </table>
-
+                            </div>
                             <div class="row" style="padding: 20px">
                                 <table class="table table-bordered table-sm ">
                                     <tr>
