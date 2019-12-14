@@ -1,4 +1,4 @@
-function generateInvoice(data) {
+function generateInvoiceALL(data) {
     document.getElementById('parent_name').innerHTML = ": " + data[2];
     document.getElementById('parent_id').innerHTML = ": " + data[3];
     document.getElementById('parent_tel').innerHTML = ": " + data[4];
@@ -10,7 +10,8 @@ function generateInvoice(data) {
             document.getElementById("invoiceTable").innerHTML = this.responseText;
         }
     };
-    invoice.open("GET", "invoice.php?studentId=" + data[0], false);
+    invoice.open("GET", "invoiceAll.php?familyId=" + data[3], false);
     invoice.send();
 
 }
+

@@ -34,7 +34,6 @@ if ($ExecQuery->num_rows > 0) {
                                             <th>SI No. <br> رقم</th>
                                             <th>Parent </th>
                                             <th>Name </th>
-                                            <th style='font-size:20px'>اسم</th>
                                             <th>Grade</th>
                                             <th>Admission Number <br> رقم القبول</th>
                                             <th>Family ID <br> رقم العائلة</th>
@@ -59,12 +58,15 @@ if ($ExecQuery->num_rows > 0) {
 
         echo"<tr><td>".++$si."</td>".
             "<td style='text-align:left'>".$row['parent_name']."</td>".
-            "<td style='text-align:left'>".$row['en_name']."</td>".
-            "<td style='text-align:right'>".$row['ar_name']."</td>".
+            "<td style='text-align:left'>" . $row['en_name'] . "<br>" . $row['ar_name'] . "</td>" .
+//            "<td style='text-align:right'>".$row['ar_name']."</td>".
             "<td style='text-align:left'>" . $row['grade'] . " - " . $row['section'] . "</td>" .
             "<td>".$row['admission_no']."<br>". engtoarabic($row['admission_no'])."</td>".
             "<td>".$row['familyid']."<br>". engtoarabic($row['familyid'])."</td>"
-            . "<td><button title='Generate Tax Invoice' onclick='generateInvoice( " . json_encode($data) . " )' data-toggle='modal' data-target='#invoiceModalCenter' class='btn btn-danger btn-sm'>Generate Invoice</button>"
+            . "<td><button title='Generate Tax Invoice' onclick='generateInvoice( " . json_encode($data) . " )' data-toggle='modal' data-target='#invoiceModalCenter' class='btn btn-danger btn-sm'>Generate Invoice</button>
+                  <button title='Generate Tax Invoice for All' onclick='generateInvoiceALL( " . json_encode($data) . " )'   
+                  data-toggle='modal' data-target='#invoiceModalCenter' 
+                  class='btn btn-warning btn-sm'>Generate Invoice </button>"
             . "</td></tr>";
 
     }
