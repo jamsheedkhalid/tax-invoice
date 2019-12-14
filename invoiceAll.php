@@ -26,6 +26,7 @@ $inv = "SELECT DISTINCT
 
 $result = $conn->query($inv);
 if ($result->num_rows > 0) {
+    $gd_total = $gd_vat = $gd_net = 0;
     while ($row = $result->fetch_assoc()) {
         echo '<table>
                                 <tr>
@@ -142,6 +143,13 @@ if ($result->num_rows > 0) {
                 break;
 
         }
+        $total = (($uniform + (5 / 100) * $uniform) + $book + $tuition + $bus);
+        $vat_total = ((5 / 100) * $uniform);
+        $net_total = ((($uniform + (5 / 100) * $uniform) + $book + $tuition + $bus) + ((5 / 100) * $uniform));
+
+        $gd_total = $gd_total + $total;
+        $gd_vat = $gd_vat + $vat_total;
+        $gd_net = $gd_vat + $gd_total;
 
         echo '
         <table class="table table-bordered table-sm" id="feeTable" style="min-width: 100%">
@@ -198,22 +206,36 @@ if ($result->num_rows > 0) {
 
                                 <tr align="right">
                                     <td class="feehead" colspan="6">Total (AED)</td>
-                                    <td class="feehead" align="right" id="total">' . (($uniform + (5 / 100) * $uniform) + $book + $tuition + $bus) . '</td>
+                                    <td class="feehead" align="right" id="total">' . $total . '</td>
                                 </tr>
                                 <tr align="right">
                                     <td class="feehead" colspan="6">VAT Total (AED)</td>
-                                    <td class="feehead" align="right" id="vat_total"> ' . ((5 / 100) * $uniform) . ' </td>
+                                    <td class="feehead" align="right" id="vat_total"> ' . $vat_total . ' </td>
                                 </tr>
                                 <tr align="right">
                                     <td class="feehead" colspan="6">Net Total (AED)</td>
-                                    <td class="feehead" align="right" id="net_total">' . ((($uniform + (5 / 100) * $uniform) + $book + $tuition + $bus) + ((5 / 100) * $uniform)) . '</td>
+                                    <td class="feehead" align="right" id="net_total">' . $net_total . '</td>
                                 </tr>
                                 </tbody>
                             </table>
        
        ';
 
+
     }
+
+    echo '<br> <table align="right" class=" table-bordered tableBorder ">
+        <thead class="black white-text tableBorder">
+        <tr  class="tableBorder"><td>Grand Total</td>
+        <td class="tableBorder">Grand VAT Total</td>
+        <td class="tableBorder">Grand Net Total</td> </tr>
+        </thead>
+        <tbody class="tableBorder"  align="right" style="text-align: right"><tr>
+        <td class="tableBorder">AED ' . $gd_total . '</td>
+        <td class="tableBorder">AED ' . $gd_vat . '</td>
+        <td class="tableBorder">AED ' . $gd_net . '</td></tr>
+        </tbody>
+        </table> ';
 }
 
 ?>
