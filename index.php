@@ -82,7 +82,8 @@
                                             <img src="assets/sanawbar-logo.jpeg" width="80px" height="80px" style="margin-right: 10px"></td>
                                         <td>
                                             <h10> <b>AL SANAWABAR SCHOOL </b></h10><br>
-                                            <small> Manaseer School Road, P.o Nox 1781</small><br>
+                                            <small> Manaseer School Road, P.o Box 1781</small>
+                                            <br>
                                             <small> TEL: 03 76798889</small><br>
                                             <small> www.alsanawbarschool.com</small>
                                         </td></tr>
