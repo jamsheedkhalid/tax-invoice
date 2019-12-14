@@ -187,7 +187,7 @@ if ($result->num_rows > 0) {
                                     <td class="feehead" align="right" id="tuition_fee">' . $tuition . '</td>
                                     <td class="feehead" align="right">0</td>
                                     <td class="feehead" align="right" id="tuition_vat">0</td>
-                                    <td class="feehead" align="right" id="tuition_total">' . $installment_1 . '</td>
+                                    <td class="feehead" align="right" id="tuition_total">' . $tuition . '</td>
                                 </tr>
                                 <tr>
                                     <td class="feehead" colspan="3">Transportation</td>
