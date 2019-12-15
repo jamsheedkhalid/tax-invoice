@@ -26,11 +26,18 @@
     <script src="js/print/print.min.js"></script>
     <script src="js/generateInvoice.js"></script>
     <script src="js/generateInvoiceAll.js"></script>
+    <script src="js/saveInvoice.js"></script>
+    <script src="js/saveInvoiceAll.js"></script>
     <script src="js/showStudents.js"></script>
+    <script src="js/deleteInvoice.js"></script>
     <link rel="stylesheet" type="text/css" href="js/print/print.min.css">
     <link rel="stylesheet" type="text/css" href="css/main.css">
 
 </head>
+<script>
+
+</script>
+
 <body>
 <h1 align="center" style="padding-top: 10px; color: green"><u>TAX INVOICE</u></h1>
 
@@ -119,7 +126,7 @@
                                     </tr>
                                     <tr>
                                         <td><b>Parent ID</b></td>
-                                        <td id="parent_id"></td>
+                                        <td> : <label id="parent_id"></label></td>
                                     </tr>
                                     <tr>
                                         <td><b>Tel</b></td>
@@ -135,7 +142,7 @@
 
                                                 <tr>
                                         <td><b>Invoice No</b></td>
-                                        <td>: 123456</td>
+                                                    <td>: <label id="invoice_no">123456</label></td>
                                     </tr>
                                     <tr>
                                         <td><b>Invoice Date</b></td>
@@ -256,7 +263,10 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary" id='printbtn'
+                <button type="button" class="btn btn-danger" data-dismiss="modal"
+                        onclick="deleteInvoice(document.getElementById('invoice_no').innerText)">Delete
+                </button>
+                <button type="button" class="btn btn-warning" id='printbtn'
                         onclick="printJS({printable: 'invoicePrint',css: 'css/print.css', type: 'html', showModal: true,targetStyles: '*'});">
                     PRINT
                 </button>
