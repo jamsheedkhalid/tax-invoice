@@ -27,6 +27,7 @@
     <script src="js/generateInvoice.js"></script>
     <script src="js/generateInvoiceAll.js"></script>
     <script src="js/saveInvoice.js"></script>
+    <script src="js/saveInvoiceAll.js"></script>
     <script src="js/showStudents.js"></script>
     <script src="js/deleteInvoice.js"></script>
     <link rel="stylesheet" type="text/css" href="js/print/print.min.css">

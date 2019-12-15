@@ -60,13 +60,30 @@ if ($ExecQuery->num_rows > 0) {
         if ($Result->num_rows > 0) {
             while ($rowInvoice = $Result->fetch_assoc()) {
                 $has_invoice = 1;
-                $data = array(
-                    8 => $rowInvoice['id'],
-                    5 => $rowInvoice['invoice_date']
-                );
+                $data[8] = $rowInvoice['id'];
+                $data[5] = $rowInvoice['invoice_date'];
+//                $data = array(
+//                    8 => $rowInvoice['id'],
+//                    5 => $rowInvoice['invoice_date']
+//                );
             }
         } else {
             $has_invoice = 0;
+
+        }
+
+        $invoiceAll = "SELECT * from tax_invoices WHERE family_id = '$row[familyid]'
+        AND is_multiple = 1";
+        $ResultAll = MySQLi_query($conn, $invoiceAll);
+        if ($ResultAll->num_rows > 0) {
+            while ($rowInvoiceAll = $ResultAll->fetch_assoc()) {
+                $has_invoiceAll = 1;
+                $data[9] = $rowInvoiceAll['id'];
+                $data[10] = $rowInvoiceAll['invoice_date'];
+
+            }
+        } else {
+            $has_invoiceAll = 0;
 
         }
 
@@ -84,10 +101,17 @@ if ($ExecQuery->num_rows > 0) {
             echo "<td><button id='btnGenerateInvoice' title='Generate Tax Invoice' onclick='generateInvoice( " . json_encode($data) . " )' class='btn btn-danger btn-sm'>Generate Invoice</button> ";
 
         }
-        echo " <button title='Generate Tax Invoice for All' onclick='generateInvoiceALL( " . json_encode($data) . " )'   
-                  data-toggle='modal' data-target='#invoiceModalCenter' 
+
+        if ($has_invoiceAll == 1) {
+            echo " <button title='View Tax Invoice for All' onclick='viewInvoiceALL( " . json_encode($data) . " )'
+                  data-toggle='modal' data-target='#invoiceModalCenter'
+                  class='btn btn-primary btn-sm'>View Invoice </button>"
+                . "</td></tr>";
+        } else {
+            echo " <button title='Generate Tax Invoice for All' onclick='generateInvoiceALL( " . json_encode($data) . " )'   
                   class='btn btn-warning btn-sm'>Generate Invoice </button>"
-            . "</td></tr>";
+                . "</td></tr>";
+        }
 
     }
 
