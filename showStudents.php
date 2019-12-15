@@ -47,14 +47,28 @@ if ($ExecQuery->num_rows > 0) {
             2 => $row['parent_name'],
             3 => $row['familyid'],
             4 => $row['parent_number'],
-            5 => date("d-m-Y"),
             6 => $row['grade'],
             7 => $row['section'],
 
         );
-
         $admission = $row['admission_no'];
         $name = $row['en_name'];
+
+        $invoice = "SELECT * from tax_invoices WHERE family_id = '$row[familyid]' AND student_admission = '$row[admission_no]'
+        AND is_single = 1";
+        $Result = MySQLi_query($conn, $invoice);
+        if ($Result->num_rows > 0) {
+            while ($rowInvoice = $Result->fetch_assoc()) {
+                $has_invoice = 1;
+                $data = array(
+                    8 => $rowInvoice['id'],
+                    5 => $rowInvoice['invoice_date']
+                );
+            }
+        } else {
+            $has_invoice = 0;
+
+        }
 
         echo"<tr><td>".++$si."</td>".
             "<td style='text-align:left'>".$row['parent_name']."</td>".
@@ -62,9 +76,15 @@ if ($ExecQuery->num_rows > 0) {
 //            "<td style='text-align:right'>".$row['ar_name']."</td>".
             "<td style='text-align:left'>" . $row['grade'] . " - " . $row['section'] . "</td>" .
             "<td>".$row['admission_no']."<br>". engtoarabic($row['admission_no'])."</td>".
-            "<td>".$row['familyid']."<br>". engtoarabic($row['familyid'])."</td>"
-            . "<td><button title='Generate Tax Invoice' onclick='generateInvoice( " . json_encode($data) . " )' data-toggle='modal' data-target='#invoiceModalCenter' class='btn btn-danger btn-sm'>Generate Invoice</button>
-                  <button title='Generate Tax Invoice for All' onclick='generateInvoiceALL( " . json_encode($data) . " )'   
+            "<td>" . $row['familyid'] . "<br>" . engtoarabic($row['familyid']) . "</td>";
+
+        if ($has_invoice == 1) {
+            echo "<td><button id='btnViewInvoice' title='View Tax Invoice' onclick='viewInvoice( " . json_encode($data) . " )' data-toggle='modal' data-target='#invoiceModalCenter' class='btn btn-success btn-sm'>View Invoice</button> ";
+        } else {
+            echo "<td><button id='btnGenerateInvoice' title='Generate Tax Invoice' onclick='generateInvoice( " . json_encode($data) . " )' class='btn btn-danger btn-sm'>Generate Invoice</button> ";
+
+        }
+        echo " <button title='Generate Tax Invoice for All' onclick='generateInvoiceALL( " . json_encode($data) . " )'   
                   data-toggle='modal' data-target='#invoiceModalCenter' 
                   class='btn btn-warning btn-sm'>Generate Invoice </button>"
             . "</td></tr>";
