@@ -105,11 +105,11 @@ if ($ExecQuery->num_rows > 0) {
         if ($has_invoiceAll == 1) {
             echo " <button title='View Tax Invoice for All' onclick='viewInvoiceALL( " . json_encode($data) . " )'
                   data-toggle='modal' data-target='#invoiceModalCenter'
-                  class='btn btn-primary btn-sm'>View Invoice </button>"
+                  class='btn btn-primary btn-sm'>View Invoice All </button>"
                 . "</td></tr>";
         } else {
             echo " <button title='Generate Tax Invoice for All' onclick='generateInvoiceALL( " . json_encode($data) . " )'   
-                  class='btn btn-warning btn-sm'>Generate Invoice </button>"
+                  class='btn btn-warning btn-sm'>Generate Invoice All </button>"
                 . "</td></tr>";
         }
 
