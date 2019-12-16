@@ -54,8 +54,8 @@
     <div class="col">
 
     </div>
-    <div class="col-10">
-        <div id='tableStudents' style="padding-top: 20px;">
+    <div class="col-12" style="padding: 30px">
+        <div id='tableStudents' style="padding-top: 20px; height: 100vh; overflow-y: scroll; overflow-x: hidden">
         </div>
     </div>
     <div class="col">
