@@ -30,7 +30,8 @@ $sql= "SELECT DISTINCT
 $ExecQuery = MySQLi_query($conn, $sql);
 if ($ExecQuery->num_rows > 0) {
     $si =0;
-    echo " <table class='table table-bordered ' style='text-align:center'> <thead class=thead-dark ><tr>
+    echo " <table class='table table-bordered ' style='text-align:center;'> 
+ <thead class=thead-dark style='width: 100%!important; '><tr>
                                             <th>SI No. <br> رقم</th>
                                             <th>Parent </th>
                                             <th>Name </th>
@@ -39,7 +40,8 @@ if ($ExecQuery->num_rows > 0) {
                                             <th>Family ID <br> رقم العائلة</th>
                                             <th>Action <br> عمل</th>
                                         </tr>
-                                    </thead>";
+                                    </thead>
+                           ";
     while ($row = $ExecQuery->fetch_assoc()) {
         $data = array(
             0 => $row['admission_no'],
