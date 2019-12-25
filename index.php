@@ -1,279 +1,236 @@
+<?php
+session_start();
+if (isset($_SESSION['login'])) {
+    header('Location: tax-invoice.php');
+}
+?>
 
 <!doctype html>
 <head>
-    <title>TAX INVOICE</title>
+    <title>Login</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
-    <!-- Bootstrap core CSS -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Material Design Bootstrap -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.10/css/mdb.min.css" rel="stylesheet">
+    <script src="https://s3.amazonaws.com/api_play/src/js/jquery-2.1.1.min.js"></script>
+    <script src="https://s3.amazonaws.com/api_play/src/js/vkbeautify.0.99.00.beta.js"></script>
+    <!--===============================================================================================-->
+    <link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="vendor/animsition/css/animsition.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="css/util.css">
+    <link rel="stylesheet" type="text/css" href="css/mainLogin.css">
+    <!--===============================================================================================-->
 
-    <!-- JQuery -->
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <!-- Bootstrap tooltips -->
-    <script type="text/javascript"
-            src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
-    <!-- Bootstrap core JavaScript -->
-    <script type="text/javascript"
-            src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
-    <!-- MDB core JavaScript -->
-    <script type="text/javascript"
-            src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.10/js/mdb.min.js"></script>
 
-    <script src="js/print/print.min.js"></script>
-    <script src="js/generateInvoice.js"></script>
-    <script src="js/generateInvoiceAll.js"></script>
-    <script src="js/saveInvoice.js"></script>
-    <script src="js/saveInvoiceAll.js"></script>
-    <script src="js/showStudents.js"></script>
-    <script src="js/deleteInvoice.js"></script>
-    <link rel="stylesheet" type="text/css" href="js/print/print.min.css">
-    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <script>
+        $(function () {
+            $("#generate-button").click(function () {
+                var instanceurl = $("#instanceurl").val();
+                var client_id = $("#client_id").val();
+                var client_secret = $("#client_secret").val();
+                var redirect_uri = $("#redirect_uri").val();
+                var username = $("#username").val();
+                var password = $("#password").val();
+                if (username !== "" || password !== "") {
+                    var token_input = $("#token");
+                    var result_div = $("#result");
+                    document.getElementById("iurl").value = document.getElementById("instanceurl").value;
+                    generate_token(instanceurl, client_id, client_secret, redirect_uri, username, password, token_input, result_div);
+                }
+            });
+        });
+    </script>
+
+    <script>
+        function generate_token(instanceurl, client_id, client_secret, redirect_uri, username, password, token_input, result_div) {
+            token_input.val("");
+            result_div.html("");
+            try {
+                var xmlDoc;
+                var xhr = new XMLHttpRequest();
+                xhr.open("POST", instanceurl + "/oauth/token", true);
+                xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+                xhr.onreadystatechange = function (e) {
+                    if (xhr.readyState === 4) {
+                        var a = JSON.parse(e.target.responseText);
+                        token_input.val(a["access_token"]);
+                        if (token_input.val() !== "") {
+                            document.getElementById('invalidCredentials').style.display = 'none';
+
+                            $('#welcome-modal').modal('show');
+                            setTimeout(function () {
+                                $('#welcome-modal').modal('hide');
+                            }, 6000);
+                            document.getElementById("generate-report").click();
+                        } else
+                            document.getElementById('invalidCredentials').style.display = 'inline';
+
+                        result_div.html(show_response(e.target.responseText));
+                        xmlDoc = this.responseText;
+                        txt = "";
+                    }
+
+
+                };
+                xhr.send("client_id=" + client_id + "&client_secret=" + client_secret + "&grant_type=password&username=" + username + "&password=" + password + "&redirect_uri=" + redirect_uri);
+            } catch (err) {
+                alert(err.message);
+            }
+        }
+        ;
+
+        function show_response(str) {
+            str = vkbeautify.xml(str, 4);
+            return str.replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/\n/g, "<br />");
+        }
+        ;
+
+        function validateForm() {
+            var x = document.forms["frm"]["token"].value;
+            if (x === "") {
+                alert("Generate an access token first");
+                return false;
+            }
+        }
+        ;
+    </script>
+
 
 </head>
+<body>
+
+<!--API Connecting with demo-->
+<input id="instanceurl" type="hidden" name="instanceurl" value="https://alsanawbar.school/"/>
+<input id="client_id" type="hidden" value="f58a497cc122dc35edd7b016b7819ca601db2c787304e654751f8a2052e55733"/>
+<input id="client_secret" type="hidden" value="2fc65b759590f5f7e07c8711e35423bb25d9d509e619528693d1b6503d1ceabf"/>
+<input id="redirect_uri" type="hidden" value="https://invoices.alsanawbar.school"/>
+
+
+<div class="limiter">
+    <div class="container-login100">
+        <div class="wrap-login100 p-l-85 p-r-85 p-t-55 p-b-55">
+            <form class="login100-form validate-form flex-sb flex-w" onsubmit="event.preventDefault();">
+                    <span class="login100-form-title p-b-32">
+                        TAX INVOICE
+                    </span>
+                <?php
+                if (isset($_SESSION['notloggedin'])) {
+                    ?>
+
+                    <div id='noaccess' class="alert alert-warning wrap-input100  m-b-12">
+                        <strong>Not Logged in!</strong> Please login first to continue.
+                    </div>
+
+                    <?php
+                    unset($_SESSION['notloggedin']);
+                }
+                ?>
+
+                <?php
+                if (isset($_SESSION['noaccess'])) {
+                    ?>
+
+                    <div id='noaccess' class="alert alert-danger wrap-input100  m-b-12">
+                        <strong>Unauthorized!</strong> You are unauthorized to use this system. <br>Only authorized
+                        staffs have the access. <br>Please contact system administrator.
+                    </div>
+
+                    <?php
+                    unset($_SESSION['noaccess']);
+                }
+                ?>
+                <div id='invalidCredentials' class="alert alert-danger wrap-input100  m-b-12" style="display: none;">
+                    <strong>Invalid!</strong> Username/Password is inavlid.
+                </div>
+                <span class="txt1 p-b-11">
+                        Username
+                    </span>
+                <div class="wrap-input100 validate-input m-b-36" data-validate="Username is required">
+                    <input class="input100" id="username" type="text" placeholder="Username" autofocus/>
+                    <span class="focus-input100"></span>
+                </div>
+
+                <span class="txt1 p-b-11">
+                        Password
+                    </span>
+                <div class="wrap-input100 validate-input m-b-12" data-validate="Password is required">
+                        <span class="btn-show-pass">
+                            <i class="fa fa-eye"></i>
+                        </span>
+                    <input class="input100" id="password" type="password" placeholder="Password"/>
+                    <span class="focus-input100"></span>
+                </div>
+
+                <div class="flex-sb-m w-full p-b-48">
+
+                </div>
+
+                <div class="container-login100-form-btn">
+                    <input class="login100-form-btn" type="submit" id="generate-button" value="Login">
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+</div>
+<form name="frm" onsubmit="return validateForm()" action="login.php" method="POST" style="display: none">
+    <input id="token" type="hidden" name="token">
+    <input id="iurl" type="hidden" name="iurl">
+    <input id="user" name="user">
+    <input type="submit" id="generate-report" value="Generate Reports">
+</form>
+<div id="welcome-modal" class="modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <p style="text-align: center"><strong> Successfully Logged in. </strong></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 <script>
 
+
+    var input = document.getElementById("password");
+    input.addEventListener("keyup", function (event) {
+        document.getElementById("user").value = document.getElementById("username").value;
+        if (event.keyCode === 13)
+            document.getElementById("generate-button").click();
+    });
 </script>
-
-<body>
-<h1 align="center" style="padding-top: 10px; color: green"><u>TAX INVOICE</u></h1>
-
-<div class="col-10" id="searchBar">
-    <div class="col-8">
-        <div class="form-group ">
-            <label for="searchStudent">Search  | بحث  </label>
-            <input  type="text" class="form-control" id="searchStudent" onkeyup="showStudents(this.value)" aria-describedby="searchHelp" placeholder="">
-            <small id="searchHelp" class="form-text text-muted"><b>Enter family ID, student ID, parent name, student name |  أدخل رقم العائلة  ، رقم الطالب ،اسم الوالدين , اسم الطالب </b></small>
-        </div>
-    </div>
-</div>
-<div class="row">
-    <div class="col">
-
-    </div>
-    <div class="col-12" style="padding: 30px">
-        <div id='tableStudents' style="padding-top: 20px; height: 80vh; overflow-y: scroll; ">
-        </div>
-    </div>
-    <div class="col">
-    </div>
-</div>
-
-<div   class="modal fade " id="invoiceModalCenter" tabindex="-1" role="dialog" aria-labelledby="invoiceModalCenterTitle"
-       aria-hidden="true">
-
-    <div class="modal-dialog modal-fluid modal-dialog-scrollable modal-dialog-centered" role="document">
-
-
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLongTitle">Tax Invoice</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body" id="invoicePrint">
-                <div class="container"  >
-                    <div style="border: solid black 1px; padding: 5px; he">
-                        <div class="row " style="padding: 20px" >
-                            <table style="max-width: 100%">
-                                <tr>
-                                    <td>
-                                        <div class="col">
-                                            <table>
-                                    <tr>
-                                        <td>
-                                            <img src="assets/sanawbar-logo.jpeg" width="80px" height="80px" style="margin-right: 10px"></td>
-                                        <td>
-                                            <h10> <b>AL SANAWABAR SCHOOL </b></h10><br>
-                                            <small> Manaseer School Road, P.o Box 1781</small>
-                                            <br>
-                                            <small> TEL: 03 76798889</small><br>
-                                            <small> www.alsanawbarschool.com</small>
-                                        </td></tr>
-                                </table>
-                            </div>
-                                    </td>
-
-                                    <td>
-                                        <div class="col " id="taxInvoice" style="min-width: 45em;">
-                                <br>
-                                            <table align="right">
-                                    <tr><td align="right">
-                                            <h2 style="color: green;"><u><b>TAX INVOICE</b></u></h2>
-                                            <h6 id="trn">TRN:100270764200003</h6>
-                                        </td></tr>
-                                </table>
-                            </div>
-                                    </td>
-                                </tr>
-                            </table>
-                        </div>
-                        <hr>
-                        <div class="row" style="margin: 5px;">
-                            <table class="table table-bordered table-sm" id="billInfo" style="min-width: 100%; ">
-                                <tr>
-                                    <td>
-                                        <div class="col" style="padding-top: 10px; ">
-                                Bill To <br>
-                                            <table class="table table-borderless table-sm">
-                                    <tr>
-                                        <td><b>Name</b></td>
-                                        <td id="parent_name">: Mr/Mrs. John</td>
-                                    </tr>
-                                    <tr>
-                                        <td><b>Parent ID</b></td>
-                                        <td> : <label id="parent_id"></label></td>
-                                    </tr>
-                                    <tr>
-                                        <td><b>Tel</b></td>
-                                        <td id="parent_tel"></td>
-                                    </tr>
-                                </table>
-
-                            </div>
-                                    </td>
-                                    <td>
-                                        <div class="col" style="">
-                                            <table class="table table-borderless table-sm">
-
-                                                <tr>
-                                        <td><b>Invoice No</b></td>
-                                                    <td>: <label id="invoice_no">123456</label></td>
-                                    </tr>
-                                    <tr>
-                                        <td><b>Invoice Date</b></td>
-                                        <td id="invoice_date">:</td>
-                                    </tr>
-                                </table>
-                            </div>
-                                    </td>
-                                </tr>
-                            </table>
-                        </div>
-
-                        <div style="margin: 5px; padding-top: 25px">
-                            <div id="invoiceTable">
-
-                            </div>
-                            <div class="row" style="padding: 20px">
-                                <table class="table table-bordered table-sm ">
-                                    <tr>
-                                        <td>
-                                            <div class="col tableBorder">
-                                    Bank Details: <br>
-                                                <table class="table table-sm table-borderless "
-                                                       style="border-collapse: collapse;font-size: 14px; min-width: max-content">
-                                        <tr>
-                                            <td>Bank Name</td>
-                                            <td>: Bank of Sharjah</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Branch</td>
-                                            <td>: Al Ain</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Account Name</td>
-                                            <td>: Al Sanawbar School</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Account No</td>
-                                            <td>: 01106-357005</td>
-                                        </tr>
-                                        <tr>
-                                            <td>IBAN</td>
-                                            <td>: AED900120000001106357005</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Currency</td>
-                                            <td>: AED</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Swift Code</td>
-                                            <td>: SHARAEAS</td>
-                                        </tr>
-                                    </table>
-                                </div>
-                                        </td>
-                                        <td>
-
-                                            <div class="col  notes"
-                                                 style="border-collapse: collapse; font-size: 14px; padding: 10px; margin-top: 20px; margin-right: 20px">
-                                                <table class="table table-sm table-borderless ">
-                                                    <tr>
-                                                        <td>
-                                                            Payment can be done in CASH/VISA/CHEQUE drawn in favour of
-                                                            Al Sanawbar School or
-                                                        through direct bank transfer
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>
-                                                            <br>
-                                                            <p>Notes: <br>
-                                                            1. Please ensure that the above invoice amount is credited to our
-                                                            account after deduction of all bank charges <br>
-                                                            2. Kindly email student name, grade, Family ID and bank transfer</p>
-                                                        </td>
-                                                    </tr>
-                                                </table>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                </table>
-                            </div>
-
-
-                        </div>
-
-                        <hr>
-                        <div align="center" class="row" style="margin-top: 50px; margin-bottom: 50px">
-                            <table align="center">
-                                <tr>
-                                    <td>
-                                        <div class="col-sm" style="min-width: 50%!important;" align="center">
-                                <i>
-                                    <small>Principal</small>
-                                </i>
-                                <br> <br>
-                                            ___________________________
-                            </div>
-                                    </td>
-                                    <td width="200px;"></td>
-                                    <td>
-
-                                        <div class="col-sm" style="min-width: 50%!important;" align="center">
-                                            <i>
-                                                <small>Accounts Officer</small>
-                                            </i>
-                                            <br> <br>
-                                            ___________________________
-                                        </div>
-                                    </td>
-                                </tr>
-                            </table>
-                        </div>
-
-
-                    </div>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-danger" data-dismiss="modal"
-                        onclick="deleteInvoice(document.getElementById('invoice_no').innerText)">Delete
-                </button>
-                <button type="button" class="btn btn-warning" id='printbtn'
-                        onclick="printJS({printable: 'invoicePrint',css: 'css/print.css', type: 'html', showModal: true,targetStyles: '*'});">
-                    PRINT
-                </button>
-            </div>
-        </div>
-    </div>
-</div>
-
-
+<!--===============================================================================================-->
+<script src="vendor/jquery/jquery.js"></script>
+<!--===============================================================================================-->
+<script src="vendor/animsition/js/animsition.min.js"></script>
+<!--===============================================================================================-->
+<script src="vendor/bootstrap/js/popper.js"></script>
+<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+<script src="vendor/select2/select2.min.js"></script>
+<!--===============================================================================================-->
+<script src="vendor/daterangepicker/moment.min.js"></script>
+<script src="vendor/daterangepicker/daterangepicker.js"></script>
+<!--===============================================================================================-->
+<script src="vendor/countdowntime/countdowntime.js"></script>
+<!--===============================================================================================-->
+<script src="js/main.js"></script>
 </body>
+</html>
+
