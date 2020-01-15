@@ -32,6 +32,8 @@ checkLoggedIn()
     <script src="js/print/print.min.js"></script>
     <script src="js/generateInvoice.js"></script>
     <script src="js/generateInvoiceAll.js"></script>
+    <script src="js/generateBookInvoice.js"></script>
+    <script src="js/saveBookInvoice.js"></script>
     <script src="js/saveInvoice.js"></script>
     <script src="js/saveInvoiceAll.js"></script>
     <script src="js/showStudents.js"></script>

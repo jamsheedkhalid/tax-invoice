@@ -28,7 +28,10 @@ $inv = "SELECT DISTINCT
 $result = $conn->query($inv);
 if ($result->num_rows > 0) {
     while ($row = $result->fetch_assoc()) {
-        echo '<table>
+        echo '
+<h3 align="center"><u>FEES INVOICE</u></h3> <br>
+
+<table>
                                 <tr>
                                     <td>
                                         <div class=\"col\" align=\"left\">

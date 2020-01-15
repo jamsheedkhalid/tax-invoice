@@ -38,7 +38,7 @@ if ($ExecQuery->num_rows > 0) {
                                             <th>Grade</th>
                                             <th>Admission Number <br> رقم القبول</th>
                                             <th>Family ID <br> رقم العائلة</th>
-                                            <th>Action <br> عمل</th>
+                                            <th colspan='2'>Action <br> عمل</th>
                                         </tr>
                                     </thead>
                            ";
@@ -57,7 +57,7 @@ if ($ExecQuery->num_rows > 0) {
         $name = $row['en_name'];
 
         $invoice = "SELECT * from tax_invoices WHERE family_id = '$row[familyid]' AND student_admission = '$row[admission_no]'
-        AND is_single = 1";
+        AND is_single = 1 AND is_deleted = 0";
         $Result = MySQLi_query($conn, $invoice);
         if ($Result->num_rows > 0) {
             while ($rowInvoice = $Result->fetch_assoc()) {
@@ -75,7 +75,7 @@ if ($ExecQuery->num_rows > 0) {
         }
 
         $invoiceAll = "SELECT * from tax_invoices WHERE family_id = '$row[familyid]'
-        AND is_multiple = 1";
+        AND is_multiple = 1 AND is_deleted = 0";
         $ResultAll = MySQLi_query($conn, $invoiceAll);
         if ($ResultAll->num_rows > 0) {
             while ($rowInvoiceAll = $ResultAll->fetch_assoc()) {
@@ -89,6 +89,21 @@ if ($ExecQuery->num_rows > 0) {
 
         }
 
+        $bookInvoice = "SELECT * from tax_invoices WHERE family_id = '$row[familyid]' AND student_admission = '$row[admission_no]'
+        AND is_book = 1 AND is_deleted = 0";
+        $resultBook = MySQLi_query($conn, $bookInvoice);
+        if ($resultBook->num_rows > 0) {
+            while ($rowBookInvoice = $resultBook->fetch_assoc()) {
+                $has_book = 1;
+                $data[11] = $rowBookInvoice['id'];
+                $data[12] = $rowBookInvoice['invoice_date'];
+
+            }
+        } else {
+            $has_book = 0;
+
+        }
+
         echo"<tr><td>".++$si."</td>".
             "<td style='text-align:left'>".$row['parent_name']."</td>".
             "<td style='text-align:left'>" . $row['en_name'] . "<br>" . $row['ar_name'] . "</td>" .
@@ -97,21 +112,29 @@ if ($ExecQuery->num_rows > 0) {
             "<td>".$row['admission_no']."<br>". engtoarabic($row['admission_no'])."</td>".
             "<td>" . $row['familyid'] . "<br>" . engtoarabic($row['familyid']) . "</td>";
 
-        if ($has_invoice == 1) {
-            echo "<td><button id='btnViewInvoice' title='View Tax Invoice' onclick='viewInvoice( " . json_encode($data) . " )' data-toggle='modal' data-target='#invoiceModalCenter' class='btn btn-success btn-sm'>View Invoice</button> ";
+        if ($has_book == 1) {
+            echo "<td><button id='btnViewBookInvoice' title='View Tax Invoice for Books' onclick='viewBookInvoice( " . json_encode($data) . " )' data-toggle='modal' data-target='#invoiceModalCenter' class='btn btn-success btn-sm'>View Book Invoice</button> ";
         } else {
-            echo "<td><button id='btnGenerateInvoice' title='Generate Tax Invoice' onclick='generateInvoice( " . json_encode($data) . " )' class='btn btn-danger btn-sm'>Generate Invoice</button> ";
+            echo "<td><button id='btnGenerateBookInvoice' title='Generate Tax Invoice for Books' onclick='generateBookInvoice( " . json_encode($data) . " )' class='btn btn-primary btn-sm'>Generate Book Invoice</button> ";
+
+        }
+
+
+        if ($has_invoice == 1) {
+            echo "<td><button id='btnViewInvoice' title='View Fees Tax Invoice' onclick='viewInvoice( " . json_encode($data) . " )' data-toggle='modal' data-target='#invoiceModalCenter' class='btn btn-success btn-sm'>View Fees Invoice</button> ";
+        } else {
+            echo "<td><button id='btnGenerateInvoice' title='Generate Fees Tax Invoice' onclick='generateInvoice( " . json_encode($data) . " )' class='btn btn-primary btn-sm'>Generate Fees Invoice</button> ";
 
         }
 
         if ($has_invoiceAll == 1) {
-            echo " <button title='View Tax Invoice for All' onclick='viewInvoiceALL( " . json_encode($data) . " )'
+            echo " <button title='View Fees Tax Invoice for All' onclick='viewInvoiceALL( " . json_encode($data) . " )'
                   data-toggle='modal' data-target='#invoiceModalCenter'
-                  class='btn btn-primary btn-sm'>View Invoice All </button>"
+                  class='btn btn-success btn-sm'>View Fees Invoice All </button>"
                 . "</td></tr>";
         } else {
-            echo " <button title='Generate Tax Invoice for All' onclick='generateInvoiceALL( " . json_encode($data) . " )'   
-                  class='btn btn-warning btn-sm'>Generate Invoice All </button>"
+            echo " <button title='Generate Fees Tax Invoice for All' onclick='generateInvoiceALL( " . json_encode($data) . " )'   
+                  class='btn btn-primary btn-sm'>Generate Fees Invoice All </button>"
                 . "</td></tr>";
         }
 
