@@ -264,7 +264,7 @@ checkLoggedIn()
                                     <td>
                                         <div class="col-sm" style="min-width: 50%!important;" align="center">
                                             <i>
-                                                <small>Principal</small>
+                                                <small>Administrator</small>
                                             </i>
                                             <br> <br>
                                             ___________________________
