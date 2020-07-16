@@ -94,12 +94,12 @@ checkLoggedIn()
             <div class="modal-body" id="invoicePrint">
                 <div class="container">
                     <div style="border: solid black 1px; padding: 5px;">
-                        <div class="row " style="padding: 10px">
-                            <table style="max-width: 100%;display: block;margin-left: auto;margin-right: auto;">
+                        <div class="row" id="school_info_div">
+                            <table id="school_info_table" style="max-width: 100%;display: block;margin-left: auto;margin-right: auto;">
                                 <tr>
                                     <td>
                                         <div class="col">
-                                            <table>
+                                            <table id='school_info'>
                                                 <tr>
                                                     <td>
                                                         <img src="assets/sanawbar-logo.jpeg" width="80px" height="80px"
@@ -120,7 +120,6 @@ checkLoggedIn()
 
                                     <td>
                                         <div class="col " id="taxInvoice" style="min-width: 45em;">
-                                            <br>
                                             <table align="right">
                                                 <tr>
                                                     <td align="right">
@@ -168,7 +167,7 @@ checkLoggedIn()
                         <div style="margin: 5px; padding-top: 10px">
                             <div id="invoiceTable"></div>
                         </div>
-
+                        <br><br>
                         <div class="row">
                             <table id="bankDetails" class="table" style="border-collapse: collapse;">
                                 <tr>
