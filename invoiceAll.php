@@ -28,29 +28,18 @@ $result = $conn->query($inv);
 if ($result->num_rows > 0) {
     $gd_total = $gd_vat = $gd_net = 0;
     while ($row = $result->fetch_assoc()) {
-        echo '
-<h3 align="center"><u>FEES INVOICE</u></h3> <br>
-
-<table>
-                                <tr>
-                                    <td>
-                                        <div class=\"col\" align=\"left\">
-                                    <b>Student: </b><label id=\"student_id\">' . $row['admission_no'] . '</label> - <label id=\"student_name\">' . $row['en_name'] . '</label>
-                                </div>
-                                    </td>
-                                    <td>
-                                        <div class=\"col\" align=\"center\">
-                                    <b> Grade: </b><label id=\"student_grade\">' . $row['grade'] . '-' . $row['section'] . '</label>
-                                </div>
-                                    </td>
-                                    <td>
-                                        <div class=\"col\" align=\"right\">
-                                            <b>AY: </b><label> 2019 - 2020</label>
-                                </div>
-                                    </td>
-                                </tr>
-                            </table>
-';
+        echo '<div style="width:100%;margin-top:20px;">
+                <table id="student_info" style="width:100%;diplay:block; margin-left:auto;margin-right:auto;">
+                    <tr>
+                        <td colspan="3"><strong>Name: </strong>' . $row['en_name'] . '</td>
+                    </tr>
+                    <tr>
+                        <td><strong>MOE#: </strong>' . $row['admission_no'] . '</td>
+                        <td><strong>Grade: </strong>' . $row['grade'] . '-' . $row['section'] . '</td>
+                        <td><strong>Year: </strong>2019 - 2020</td>
+                    </tr>
+                </table>
+            </div>';
         switch ($row['grade']) {
             case ' KG1 ':
             case ' KG2 ':
@@ -227,7 +216,22 @@ if ($result->num_rows > 0) {
 
     }
 
-    echo '<br> <table align="right" class=" table-bordered tableBorder ">
+    echo '<div class="row"><div id="notes_div" class="col-half">';
+    echo '<table class="table-borderless">
+              <tr>
+                <td style="text-align:left">Payment can be done in CASH/VISA/CHEQUE drawn in favour of Al Sanawbar School or through direct bank transfer</td>
+              </tr>
+              <tr>
+                <td style="text-align:left">
+                    <p>Notes: <br>1. Please ensure that the above invoice amount is credited to our account after deduction of all bank charges
+                    <br>2. Kindly email student name, grade, Family ID and bank transfer</p>
+                </td>
+              </tr>
+            </table>
+        </div>';
+    
+    echo '<div id="total_div" class="col-half">';
+    echo '<br> <table align="right" class="table-bordered tableBorder">
         <thead class="black white-text tableBorder">
         <tr  class="tableBorder"><td>Grand Total</td>
         <td class="tableBorder">Grand VAT Total</td>
@@ -239,6 +243,8 @@ if ($result->num_rows > 0) {
         <td class="tableBorder">AED ' . $gd_net . '</td></tr>
         </tbody>
         </table> ';
+    echo '</div>';
+    echo '</div>';
 }
 
 ?>

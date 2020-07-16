@@ -6,5 +6,8 @@
 #bankTable {
     border: 1px solid black;
 }
-
-
+.col-half {
+    max-width: 50%;
+    min-width: 50%;
+    display: inline-block;
+}

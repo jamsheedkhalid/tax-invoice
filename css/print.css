@@ -1,9 +1,6 @@
 
 #feeTable, .tableBorder {
     border-collapse: collapse;
-}
-
-#feeTable, .tableBorder {
     border: 1px solid black;
 }
 
@@ -11,18 +8,6 @@
     padding: 10px;
     min-width: max-content;
 }
-
-.notes {
-    margin-left: 50px;
-    min-width: 400px;
-}
-
-/*}*/
-/*#feeTable{*/
-/*    align-content: center;*/
-/*    padding: 15px;*/
-/*    text-align: left;*/
-/*}*/
 
 .feehead {
     border: 1px solid black;
@@ -36,6 +21,33 @@
 #taxInvoice {
     min-width: 25em !important;
 }
+#notes_div {
+    font-size: 12px;
+}
+#total_div {
+    float: right;
+    font-size: 10px;
+    font-weight: bold;
+}
+.col-half {
+    max-width: 50%;
+    min-width: 50%;
+    display: inline-block;
+}
 
+#bankDetails {
+    min-width: 100%;
+    font-size: 14px;
+}
+#bankDetails th, td {
+    text-align: center;
+}
 
+#student_info {
+    font-size: 14px;
+}
 
+#bill_info td{
+    text-align: left;
+}
+#academic_year_label {display: block;}
