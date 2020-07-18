@@ -11,3 +11,17 @@
     min-width: 50%;
     display: inline-block;
 }
+#bank_div_left {
+    float: left;
+    border: 1px solid black;
+    max-width: 50%;
+    min-width: 50%;
+    color: rebeccapurple;
+    
+}
+#bank_div_right {
+    float: right;
+    border: 1px solid black;
+    max-width: 50%;
+    min-width: 50%;
+}

@@ -168,55 +168,75 @@ checkLoggedIn()
                             <div id="invoiceTable"></div>
                         </div>
                         <br><br>
-                        <div class="row">
-                            <table id="bankDetails" class="table" style="border-collapse: collapse;">
-                                <tr>
-                                    <th colspan='4' style="border-bottom: 1px solid;">BANK DETAILS</th>
-                                </tr>
-                                <tr>
+                        <tr>
+
+                       <h4>BANK DETAILS</h4> 
+                        <div class="row" style="margin:2px;">
+                            <div id="bank_div_left"  class="col">
+                                <table id="bank_left" align="left" >
+                                <tr  align="left" >
                                     <th>Bank Name</th>
                                     <td>Bank of Sharjah</td>
-                                    <td>FAB</td>
-                                    <th>Bank Name</th>
                                 </tr>
-                                <tr>
+                                <tr  align="left" >
                                     <th>Branch</th>
                                     <td>Al Ain</td>
-                                    <td>Al Ain</td>
-                                    <th>Branch</th>
                                 </tr>
-                                <tr>
+                                <tr  align="left" >
                                     <th>Account Name</th>
                                     <td>Al Sanawbar School</td>
-                                    <td>Al Sanawbar School</td>
-                                    <th>Account Name</th>
                                 </tr>
-                                <tr>
+                                <tr  align="left" >
                                     <th>Account No</th>
                                     <td>01106-357005</td>
-                                    <td>10110-020366-58016</td>
-                                    <th>Account No</th>
                                 </tr>
-                                <tr>
+                                <tr  align="left" >
                                     <th>IBAN</th>
                                     <td>AED9 001 200 000 011 063 57 005</td>
-                                    <td>AE42 035 101 100 203 665 80 16</td>
-                                    <th>IBAN</th>
                                 </tr>
-                                <tr>
+                                <tr  align="left" >
                                     <th>Currency</th>
                                     <td>AED</td>
-                                    <td>AED</td>
-                                    <th>Currency</th>
                                 </tr>
-                                <tr>
+                                <tr  align="left" >
                                     <th>Swift Code</th>
                                     <td>SHARAEAS</td>
-                                    <td>FGBMAEAA</td>
-                                    <th>Swift Code</th>
                                 </tr>
                             </table>
                         </div>
+                        <div id="bank_div_right"  class="col">
+                        <table id="bank_right"  align="left">
+                                <tr  align="left">
+                                    <th>Bank Name</th>
+                                    <td>FAB</td>
+                                </tr>
+                                <tr  align="left">
+                                    <th>Branch</th>
+                                    <td>Al Ain</td>
+                                </tr>
+                                <tr  align="left">
+                                    <th>Account Name</th>
+                                    <td>Al Sanawbar School</td>
+                                </tr>
+                                <tr  align="left">
+                                    <th>Account No</th>
+                                    <td>10110-020366-58016</td>
+                                </tr>
+                                <tr  align="left">
+                                    <th>IBAN</th>
+                                    <td>AE42 035 101 100 203 665 80 16</td>
+                                </tr>
+                                <tr  align="left">
+                                    <th>Currency</th>
+                                    <td>AED</td>
+                                </tr>
+                                <tr  align="left">
+                                    <th>Swift Code</th>
+                                    <td>FGBMAEAA</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
                         <hr>
                         <div align="center" class="row" style="margin-top: 50px; margin-bottom: 50px">
                             <table align="center">

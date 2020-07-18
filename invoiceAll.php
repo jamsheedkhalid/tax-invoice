@@ -31,7 +31,7 @@ if ($result->num_rows > 0) {
         echo '<div style="width:100%;margin-top:20px;">
                 <table id="student_info" style="width:100%;diplay:block; margin-left:auto;margin-right:auto;">
                     <tr>
-                        <td colspan="3"><strong>Name: </strong>' . $row['en_name'] . '</td>
+                        <td colspan="3" style="font-size: 20px"><strong>Name: </strong>' . $row['en_name'] . '</td>
                     </tr>
                     <tr>
                         <td><strong>MOE#: </strong>' . $row['admission_no'] . '</td>
@@ -210,9 +210,7 @@ if ($result->num_rows > 0) {
                                 </tr>
                                 </tbody>
                             </table>
-       
        ';
-
 
     }
 

@@ -34,13 +34,6 @@
     display: inline-block;
 }
 
-#bankDetails {
-    min-width: 100%;
-    font-size: 14px;
-}
-#bankDetails th, td {
-    text-align: center;
-}
 
 #student_info {
     font-size: 14px;
@@ -59,4 +52,27 @@
 #school_info_table {
     /* background-color: seagreen; */
     max-height: 110px;
+}
+
+#bank_div_left {
+    float: left;
+    border: 1px solid black;
+    /* max-width: 50%; */
+    /* min-width: 50%; */
+    /* background-color: red; */
+    
+}
+#bank_div_right {
+    float: right;
+    border: 1px solid black;
+    /* background-color: royalblue; */
+    /* max-width: 50%; */
+    /* min-width: 50%; */
+}
+#bank_left table {
+    padding: 5px !important;
+
+}
+#bank_right table{
+    padding: 5px !important;
 }
