@@ -36,7 +36,6 @@ if ($result->num_rows > 0) {
                     <tr>
                         <td><strong>MOE#: </strong>' . $row['admission_no'] . '</td>
                         <td><strong>Grade: </strong>' . $row['grade'] . '-' . $row['section'] . '</td>
-                        <td><strong>Year: </strong>2019 - 2020</td>
                     </tr>
                 </table>
             </div>';

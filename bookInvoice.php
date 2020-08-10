@@ -42,11 +42,6 @@ if ($result->num_rows > 0) {
                                     <b> Grade: </b><label id=\"student_grade\">' . $row['grade'] . '-' . $row['section'] . '</label>
                                 </div>
                                     </td>
-                                    <td>
-                                        <div class=\"col\" align=\"right\">
-                                            <b>AY: </b><label> 2019 - 2020</label>
-                                </div>
-                                    </td>
                                 </tr>
                             </table>
 ';
