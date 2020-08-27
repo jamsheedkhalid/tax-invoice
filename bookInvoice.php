@@ -8,7 +8,7 @@ $inv = "SELECT DISTINCT
                  students.admission_no admission_no, students.familyid familyid,
                  guardians.first_name parent_name, guardians.mobile_phone parent_number,
                  batches.name section, courses.course_name grade
-                    FROM students INNER JOIN guardians ON students.familyid = guardians.familyid
+                    FROM students INNER JOIN guardians ON students.immediate_contact_id = guardians.id
                 INNER JOIN
                     batches ON students.batch_id = batches.id
                 INNER JOIN

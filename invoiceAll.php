@@ -9,7 +9,7 @@ $inv = "SELECT DISTINCT
                  students.admission_no admission_no, students.familyid familyid,
                  guardians.first_name parent_name, guardians.mobile_phone parent_number,
                  batches.name section, courses.course_name grade
-                    FROM students INNER JOIN guardians ON students.familyid = guardians.familyid
+                    FROM students INNER JOIN guardians ON students.immediate_contact_id = guardians.id
                 INNER JOIN
                     batches ON students.batch_id = batches.id
                 INNER JOIN
@@ -134,9 +134,9 @@ if ($result->num_rows > 0) {
                 break;
 
         }
-        $total = (($uniform + (5 / 100) * $uniform) + $book + $tuition + $bus);
+        $total = (($uniform ) + $book + $tuition + $bus);
         $vat_total = ((5 / 100) * $uniform);
-        $net_total = ((($uniform + (5 / 100) * $uniform) + $book + $tuition + $bus) + ((5 / 100) * $uniform));
+        $net_total = ((($uniform + (5 / 100) * $uniform) + $book + $tuition + $bus));
 
         $gd_total = $gd_total + $total;
         $gd_vat = $gd_vat + $vat_total;

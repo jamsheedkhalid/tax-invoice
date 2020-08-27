@@ -8,7 +8,7 @@ $inv = "SELECT DISTINCT
                  students.admission_no admission_no, students.familyid familyid,
                  guardians.first_name parent_name, guardians.mobile_phone parent_number,
                  batches.name section, courses.course_name grade
-                    FROM students INNER JOIN guardians ON students.familyid = guardians.familyid
+                    FROM students INNER JOIN guardians ON students.immediate_contact_id = guardians.id
                 INNER JOIN
                     batches ON students.batch_id = batches.id
                 INNER JOIN
@@ -197,7 +197,7 @@ if ($result->num_rows > 0) {
 
                                 <tr align="right">
                                     <td class="feehead" colspan="6">Total (AED)</td>
-                                    <td class="feehead" align="right" id="total">' . (($uniform + (5 / 100) * $uniform) + $book + $tuition + $bus) . '</td>
+                                    <td class="feehead" align="right" id="total">' . (( $uniform) + $book + $tuition + $bus) . '</td>
                                 </tr>
                                 <tr align="right">
                                     <td class="feehead" colspan="6">VAT Total (AED)</td>
@@ -205,7 +205,7 @@ if ($result->num_rows > 0) {
                                 </tr>
                                 <tr align="right">
                                     <td class="feehead" colspan="6">Net Total (AED)</td>
-                                    <td class="feehead" align="right" id="net_total">' . ((($uniform + (5 / 100) * $uniform) + $book + $tuition + $bus) + ((5 / 100) * $uniform)) . '</td>
+                                    <td class="feehead" align="right" id="net_total">' . ((($uniform + (5 / 100) * $uniform) + $book + $tuition + $bus)  ) . '</td>
                                 </tr>
                                 </tbody>
                             </table>
