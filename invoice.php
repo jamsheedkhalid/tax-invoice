@@ -187,17 +187,11 @@ if ($result->num_rows > 0) {
                                     <td class="feehead" align="right" id="tuition_vat">0</td>
                                     <td class="feehead" align="right" id="tuition_total">' . $tuition . '</td>
                                 </tr>
-                                <tr>
-                                    <td class="feehead" colspan="3">Transportation</td>
-                                    <td class="feehead" align="right" id="transportation_fee">' . $bus . '</td>
-                                    <td class="feehead" align="right">EXE</td>
-                                    <td class="feehead" align="right" id="transportation_vat">-</td>
-                                    <td class="feehead" align="right" id="transportation_total">' . $bus . '</td>
-                                </tr>
+                             
 
                                 <tr align="right">
                                     <td class="feehead" colspan="6">Total (AED)</td>
-                                    <td class="feehead" align="right" id="total">' . (( $uniform) + $book + $tuition + $bus) . '</td>
+                                    <td class="feehead" align="right" id="total">' . (( $uniform) + $book + $tuition ) . '</td>
                                 </tr>
                                 <tr align="right">
                                     <td class="feehead" colspan="6">VAT Total (AED)</td>
@@ -205,12 +199,20 @@ if ($result->num_rows > 0) {
                                 </tr>
                                 <tr align="right">
                                     <td class="feehead" colspan="6">Net Total (AED)</td>
-                                    <td class="feehead" align="right" id="net_total">' . ((($uniform + (5 / 100) * $uniform) + $book + $tuition + $bus)  ) . '</td>
+                                    <td class="feehead" align="right" id="net_total">' . ((($uniform + (5 / 100) * $uniform) + $book + $tuition )  ) . '</td>
                                 </tr>
                                 </tbody>
                             </table>
        
        ';
+
+//        <tr>
+//                                    <td class="feehead" colspan="3">Transportation</td>
+//                                    <td class="feehead" align="right" id="transportation_fee">' . $bus . '</td>
+//                                    <td class="feehead" align="right">EXE</td>
+//                                    <td class="feehead" align="right" id="transportation_vat">-</td>
+//                                    <td class="feehead" align="right" id="transportation_total">' . $bus . '</td>
+//                                </tr>
 
     }
 }

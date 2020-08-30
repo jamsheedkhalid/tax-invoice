@@ -134,9 +134,9 @@ if ($result->num_rows > 0) {
                 break;
 
         }
-        $total = (($uniform ) + $book + $tuition + $bus);
+        $total = (($uniform ) + $book + $tuition );
         $vat_total = ((5 / 100) * $uniform);
-        $net_total = ((($uniform + (5 / 100) * $uniform) + $book + $tuition + $bus));
+        $net_total = ((($uniform + (5 / 100) * $uniform) + $book + $tuition ));
 
         $gd_total = $gd_total + $total;
         $gd_vat = $gd_vat + $vat_total;
@@ -187,13 +187,7 @@ if ($result->num_rows > 0) {
                                     <td class="feehead" align="right" id="tuition_vat">0</td>
                                     <td class="feehead" align="right" id="tuition_total">' . $tuition . '</td>
                                 </tr>
-                                <tr>
-                                    <td class="feehead" colspan="3">Transportation</td>
-                                    <td class="feehead" align="right" id="transportation_fee">' . $bus . '</td>
-                                    <td class="feehead" align="right">EXE</td>
-                                    <td class="feehead" align="right" id="transportation_vat">-</td>
-                                    <td class="feehead" align="right" id="transportation_total">' . $bus . '</td>
-                                </tr>
+                               
 
                                 <tr align="right">
                                     <td class="feehead" colspan="6">Total (AED)</td>
@@ -212,6 +206,14 @@ if ($result->num_rows > 0) {
        ';
 
     }
+
+//    <tr>
+//                                    <td class="feehead" colspan="3">Transportation</td>
+//                                    <td class="feehead" align="right" id="transportation_fee">' . $bus . '</td>
+//                                    <td class="feehead" align="right">EXE</td>
+//                                    <td class="feehead" align="right" id="transportation_vat">-</td>
+//                                    <td class="feehead" align="right" id="transportation_total">' . $bus . '</td>
+//                                </tr>
 
     echo '<div class="row"><div id="notes_div" class="col-half">';
     echo '<table class="table-borderless">

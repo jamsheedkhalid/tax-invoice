@@ -1,11 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="c9afe932-0a76-49fb-aed0-200bd6ac400d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/f9a6b116-2aca-445e-a82d-1c15775d3659.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/f9a6b116-2aca-445e-a82d-1c15775d3659.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bookInvoice.php" beforeDir="false" afterPath="$PROJECT_DIR$/bookInvoice.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/invoice.php" beforeDir="false" afterPath="$PROJECT_DIR$/invoice.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/invoiceAll.php" beforeDir="false" afterPath="$PROJECT_DIR$/invoiceAll.php" afterDir="false" />
     </list>
@@ -138,7 +153,8 @@
       <workItem from="1577256620608" duration="538000" />
       <workItem from="1577257345045" duration="3943000" />
       <workItem from="1579062859240" duration="5884000" />
-      <workItem from="1598509921853" duration="3524000" />
+      <workItem from="1598509921853" duration="4266000" />
+      <workItem from="1598803630189" duration="2110000" />
     </task>
     <task id="LOCAL-00001" summary="invoice">
       <created>1575976180202</created>
@@ -285,6 +301,18 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="2" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="invoice" />
