@@ -82,7 +82,8 @@ checkLoggedIn()
     </div>
 </div>
 
-<div class="modal fade " id="invoiceModalCenter" tabindex="-1" role="dialog" aria-labelledby="invoiceModalCenterTitle" aria-hidden="true">
+<div class="modal fade " id="invoiceModalCenter" tabindex="-1" role="dialog" aria-labelledby="invoiceModalCenterTitle"
+     aria-hidden="true">
     <div class="modal-dialog modal-fluid modal-dialog-scrollable modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -95,7 +96,8 @@ checkLoggedIn()
                 <div class="container">
                     <div style="border: solid black 1px; padding: 5px;">
                         <div class="row" id="school_info_div">
-                            <table id="school_info_table" style="max-width: 100%;display: block;margin-left: auto;margin-right: auto;">
+                            <table id="school_info_table"
+                                   style="max-width: 100%;display: block;margin-left: auto;margin-right: auto;">
                                 <tr>
                                     <td>
                                         <div class="col">
@@ -138,7 +140,7 @@ checkLoggedIn()
                             <table id="bill_info" style="margin-left: auto;margin-right: auto;width: 90%;">
                                 <tr>
                                     <td colspan="4">
-                                            <strong>Bill To</strong>
+                                        <strong>Bill To</strong>
                                     </td>
                                 </tr>
                                 <tr>
@@ -170,112 +172,118 @@ checkLoggedIn()
                         <br><br>
                         <tr>
 
-                       <h4>BANK DETAILS</h4> 
-                        <div class="row" style="margin:2px;">
-                            <div id="bank_div_left"  class="col">
-                                <table id="bank_left" align="left" >
-                                <tr  align="left" >
-                                    <th>Bank Name</th>
-                                    <td>Bank of Sharjah</td>
-                                </tr>
-                                <tr  align="left" >
-                                    <th>Branch</th>
-                                    <td>Al Ain</td>
-                                </tr>
-                                <tr  align="left" >
-                                    <th>Account Name</th>
-                                    <td>Al Sanawbar School</td>
-                                </tr>
-                                <tr  align="left" >
-                                    <th>Account No</th>
-                                    <td>01106-357005</td>
-                                </tr>
-                                <tr  align="left" >
-                                    <th>IBAN</th>
-                                    <td>AED9 001 200 000 011 063 57 005</td>
-                                </tr>
-                                <tr  align="left" >
-                                    <th>Currency</th>
-                                    <td>AED</td>
-                                </tr>
-                                <tr  align="left" >
-                                    <th>Swift Code</th>
-                                    <td>SHARAEAS</td>
-                                </tr>
-                            </table>
-                        </div>
-                        <div id="bank_div_right"  class="col">
-                        <table id="bank_right"  align="left">
-                                <tr  align="left">
-                                    <th>Bank Name</th>
-                                    <td>FAB</td>
-                                </tr>
-                                <tr  align="left">
-                                    <th>Branch</th>
-                                    <td>Al Ain</td>
-                                </tr>
-                                <tr  align="left">
-                                    <th>Account Name</th>
-                                    <td>Al Sanawbar School</td>
-                                </tr>
-                                <tr  align="left">
-                                    <th>Account No</th>
-                                    <td>10110-020366-58016</td>
-                                </tr>
-                                <tr  align="left">
-                                    <th>IBAN</th>
-                                    <td>AE42 035 101 100 203 665 80 16</td>
-                                </tr>
-                                <tr  align="left">
-                                    <th>Currency</th>
-                                    <td>AED</td>
-                                </tr>
-                                <tr  align="left">
-                                    <th>Swift Code</th>
-                                    <td>FGBMAEAA</td>
-                                </tr>
-                            </table>
-                        </div>
-                    </div>
-                        <hr>
-                        <div align="center" class="row" style="margin-top: 50px; margin-bottom: 50px">
-                            <table align="center">
-                                <tr>
-                                    <td>
-                                        <div class="col-sm" style="min-width: 50%!important;" align="center">
-                                            <i><small>Administrator</small></i>
-                                            <br> <br>
-                                            ___________________________
-                                        </div>
-                                    </td>
-                                    <td width="200px;"></td>
-                                    <td>
-                                        <div class="col-sm" style="min-width: 50%!important;" align="center">
-                                            <i><small>Accounts Officer</small></i>
-                                            <br> <br>
-                                            ___________________________
-                                        </div>
-                                    </td>
-                                </tr>
-                            </table>
-                        </div>
+                            <h4>BANK DETAILS</h4>
+                            <div class="row" style="margin:2px;">
+                                <div id="bank_div_left" class="col">
+                                    <table id="bank_left" align="left">
+                                        <tr align="left">
+                                            <th>Bank Name</th>
+                                            <td>Bank of Sharjah</td>
+                                        </tr>
+                                        <tr align="left">
+                                            <th>Branch</th>
+                                            <td>Al Ain</td>
+                                        </tr>
+                                        <tr align="left">
+                                            <th>Account Name</th>
+                                            <td>Al Sanawbar School</td>
+                                        </tr>
+                                        <tr align="left">
+                                            <th>Account No</th>
+                                            <td>01106-357005</td>
+                                        </tr>
+                                        <tr align="left">
+                                            <th>IBAN</th>
+                                            <td>AED9 001 200 000 011 063 57 005</td>
+                                        </tr>
+                                        <tr align="left">
+                                            <th>Currency</th>
+                                            <td>AED</td>
+                                        </tr>
+                                        <tr align="left">
+                                            <th>Swift Code</th>
+                                            <td>SHARAEAS</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div id="bank_div_right" class="col">
+                                    <table id="bank_right" align="left">
+                                        <tr align="left">
+                                            <th>Bank Name</th>
+                                            <td>FAB</td>
+                                        </tr>
+                                        <tr align="left">
+                                            <th>Branch</th>
+                                            <td>Al Ain</td>
+                                        </tr>
+                                        <tr align="left">
+                                            <th>Account Name</th>
+                                            <td>Al Sanawbar School</td>
+                                        </tr>
+                                        <tr align="left">
+                                            <th>Account No</th>
+                                            <td>10110-020366-58016</td>
+                                        </tr>
+                                        <tr align="left">
+                                            <th>IBAN</th>
+                                            <td>AE42 035 101 100 203 665 80 16</td>
+                                        </tr>
+                                        <tr align="left">
+                                            <th>Currency</th>
+                                            <td>AED</td>
+                                        </tr>
+                                        <tr align="left">
+                                            <th>Swift Code</th>
+                                            <td>FGBMAEAA</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                            <hr>
+                            <div align="center" class="row" style="margin-top: 50px; margin-bottom: 50px">
+                                <table align="center">
+                                    <tr>
+                                        <td>
+                                            <div class="col-sm" style="min-width: 50%!important;" align="center">
+                                                <i><small>Administrator</small></i>
+                                                <br> <br>
+                                                ___________________________
+                                            </div>
+                                        </td>
+                                        <td width="200px;"></td>
+                                        <td>
+                                            <div class="col-sm" style="min-width: 50%!important;" align="center">
+                                                <i><small>Accounts Officer</small></i>
+                                                <br> <br>
+                                                ___________________________
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
                     </div>
                 </div>
             </div>
 
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-danger" data-dismiss="modal" onclick="deleteInvoice(document.getElementById('invoice_no').innerText)">Delete</button>
-                <button type="button" class="btn btn-warning" id='printbtn'onclick="printJS({printable: 'invoicePrint',css: 'css/print.css', type: 'html', showModal: true,targetStyles: '*', ignoreElements: ['academic_years']});">PRINT</button>
+                <button type="button" class="btn btn-danger" data-dismiss="modal"
+                        onclick="deleteInvoice(document.getElementById('invoice_no').innerText)">Delete
+                </button>
+                <button type="button" class="btn btn-warning" id='printbtn'
+                        onclick="printJS({printable: 'invoicePrint',css: 'css/print.css', type: 'html', showModal: true,targetStyles: '*', ignoreElements: ['academic_years']});">
+                    PRINT
+                </button>
             </div>
         </div>
     </div>
 </div>
 
 <script>
-    function update_academic_year_label(){
-        document.getElementById('academic_year_label').innerHTML = ':' + document.getElementById('academic_years').options[ document.getElementById('academic_years').selectedIndex].text
+    function update_academic_year_label() {
+        document.getElementById('academic_year_label').innerHTML = ':' + document.getElementById('academic_years').options[document.getElementById('academic_years').selectedIndex].text
     }
+
     let yearsArray = [];
     httpyears = new XMLHttpRequest();
     httpyears.onreadystatechange = function () {
@@ -288,10 +296,10 @@ checkLoggedIn()
     httpyears.send();
     let select = document.getElementById('academic_years');
     var length = select.options.length;
-    for (i = length-1; i >= 0; i--) {
+    for (i = length - 1; i >= 0; i--) {
         select.options[i] = null;
     }
-    for (i = 0; i<yearsArray.length-1; i++ ) {
+    for (i = 0; i < yearsArray.length - 1; i++) {
         select.add(new Option(yearsArray[i]));
     }
 </script>

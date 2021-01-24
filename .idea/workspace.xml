@@ -20,9 +20,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c9afe932-0a76-49fb-aed0-200bd6ac400d" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/f9a6b116-2aca-445e-a82d-1c15775d3659.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/f9a6b116-2aca-445e-a82d-1c15775d3659.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/invoice.php" beforeDir="false" afterPath="$PROJECT_DIR$/invoice.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/invoiceAll.php" beforeDir="false" afterPath="$PROJECT_DIR$/invoiceAll.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tax-invoice.php" beforeDir="false" afterPath="$PROJECT_DIR$/tax-invoice.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -94,6 +96,8 @@
   <component name="PropertiesComponent">
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="DatabaseDriversLRU" value="mysql&#10;mariadb" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="true" />
     <property name="database.console.LAST_STATE" value="false" />
@@ -101,17 +105,18 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="settings.editor.selected.configurable" value="liveEdit" />
+    <property name="settings.editor.selected.configurable" value="preferences.editor" />
+    <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\xampp\htdocs\taxInvoice\assets" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\xampp\htdocs\taxInvoice" />
       <recent name="C:\xampp\htdocs\taxInvoice\js" />
       <recent name="C:\xampp\htdocs\taxInvoice\css" />
       <recent name="C:\xampp\htdocs\taxInvoice\sql" />
+      <recent name="C:\xampp\htdocs\taxInvoice\assets" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\xampp\htdocs\taxInvoice\assets" />
     </key>
   </component>
@@ -136,6 +141,7 @@
       </list>
     </recent_temporary>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -155,6 +161,7 @@
       <workItem from="1579062859240" duration="5884000" />
       <workItem from="1598509921853" duration="4266000" />
       <workItem from="1598803630189" duration="2110000" />
+      <workItem from="1611466290057" duration="14287000" />
     </task>
     <task id="LOCAL-00001" summary="invoice">
       <created>1575976180202</created>
@@ -300,7 +307,7 @@
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="2" />
+    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -323,27 +330,5 @@
     <MESSAGE value="books invoice implemented" />
     <option name="LAST_COMMIT_MESSAGE" value="books invoice implemented" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state width="1119" height="340" key="GridCell.Tab.0.bottom" timestamp="1598527396084">
-      <screen x="-1280" y="0" width="1280" height="994" />
-    </state>
-    <state width="1119" height="340" key="GridCell.Tab.0.bottom/0.0.1536.834/-1280.0.1280.994@-1280.0.1280.994" timestamp="1598527396084" />
-    <state width="1119" height="340" key="GridCell.Tab.0.center" timestamp="1598527396084">
-      <screen x="-1280" y="0" width="1280" height="994" />
-    </state>
-    <state width="1119" height="340" key="GridCell.Tab.0.center/0.0.1536.834/-1280.0.1280.994@-1280.0.1280.994" timestamp="1598527396084" />
-    <state width="1119" height="340" key="GridCell.Tab.0.left" timestamp="1598527396084">
-      <screen x="-1280" y="0" width="1280" height="994" />
-    </state>
-    <state width="1119" height="340" key="GridCell.Tab.0.left/0.0.1536.834/-1280.0.1280.994@-1280.0.1280.994" timestamp="1598527396084" />
-    <state width="1119" height="340" key="GridCell.Tab.0.right" timestamp="1598527396084">
-      <screen x="-1280" y="0" width="1280" height="994" />
-    </state>
-    <state width="1119" height="340" key="GridCell.Tab.0.right/0.0.1536.834/-1280.0.1280.994@-1280.0.1280.994" timestamp="1598527396084" />
-    <state x="-977" y="213" width="672" height="678" key="search.everywhere.popup" timestamp="1598526734061">
-      <screen x="-1280" y="0" width="1280" height="994" />
-    </state>
-    <state x="-977" y="213" width="672" height="678" key="search.everywhere.popup/0.0.1536.834/-1280.0.1280.994@-1280.0.1280.994" timestamp="1598526734061" />
   </component>
 </project>
