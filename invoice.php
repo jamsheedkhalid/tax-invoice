@@ -21,7 +21,7 @@ $result = $conn->query($student_info);
 if ($result->num_rows > 0) {
 
     while ($row = $result->fetch_assoc()) {
-        echo '<h3 align="center"><u>FEES INVOICE</u></h3><br>
+        echo '<h3 align="center"><u>INVOICE</u></h3><br>
               <table style="width:100%">
                 <tr>
                     <td>

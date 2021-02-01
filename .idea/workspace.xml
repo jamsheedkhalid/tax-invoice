@@ -20,10 +20,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c9afe932-0a76-49fb-aed0-200bd6ac400d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/f9a6b116-2aca-445e-a82d-1c15775d3659.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/f9a6b116-2aca-445e-a82d-1c15775d3659.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/invoice.php" beforeDir="false" afterPath="$PROJECT_DIR$/invoice.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/showStudents.php" beforeDir="false" afterPath="$PROJECT_DIR$/showStudents.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tax-invoice.php" beforeDir="false" afterPath="$PROJECT_DIR$/tax-invoice.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -105,6 +104,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.editor" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -161,7 +161,10 @@
       <workItem from="1579062859240" duration="5884000" />
       <workItem from="1598509921853" duration="4266000" />
       <workItem from="1598803630189" duration="2110000" />
-      <workItem from="1611466290057" duration="14287000" />
+      <workItem from="1611466290057" duration="14889000" />
+      <workItem from="1611552705211" duration="117000" />
+      <workItem from="1611552923806" duration="65000" />
+      <workItem from="1612162843587" duration="381000" />
     </task>
     <task id="LOCAL-00001" summary="invoice">
       <created>1575976180202</created>

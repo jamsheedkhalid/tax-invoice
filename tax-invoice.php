@@ -7,7 +7,7 @@ checkLoggedIn()
 
 <!doctype html>
 <head>
-    <title>Fees TAX INVOICE</title>
+    <title>TAX INVOICE</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Font Awesome -->
@@ -49,7 +49,7 @@ checkLoggedIn()
 <body>
 <div class="row">
     <div class="col-sm"></div>
-    <div class="col-sm"><h1 align="center" style="padding-top: 10px; color: green"><u>FEES TAX INVOICE</u></h1></div>
+    <div class="col-sm"><h1 align="center" style="padding-top: 10px; color: green"><u>TAX INVOICE</u></h1></div>
     <div class="col-sm" style="margin-left: auto; padding-top: 15px">
         <form action="logout.php" style="float: right;padding-top: 5px; padding-right: 10px;margin-left: 5px">
             <button type='submit' href='logout.php' class="btn btn-danger btn-sm">
@@ -87,7 +87,7 @@ checkLoggedIn()
     <div class="modal-dialog modal-fluid modal-dialog-scrollable modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLongTitle">Fees Tax Invoice</h5>
+                <h5 class="modal-title" id="exampleModalLongTitle">Tax Invoice</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -125,7 +125,7 @@ checkLoggedIn()
                                             <table align="right">
                                                 <tr>
                                                     <td align="right">
-                                                        <h2 style="color: green;"><u><b>FEES TAX INVOICE</b></u></h2>
+                                                        <h2 style="color: green;"><u><b>TAX INVOICE</b></u></h2>
                                                         <h6 id="trn">TRN:100270764200003</h6>
                                                     </td>
                                                 </tr>

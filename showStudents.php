@@ -121,20 +121,20 @@ if ($ExecQuery->num_rows > 0) {
 
 
         if ($has_invoice == 1) {
-            echo "<td><button id='btnViewInvoice' title='View Fees Tax Invoice' onclick='viewInvoice( " . json_encode($data) . " )' data-toggle='modal' data-target='#invoiceModalCenter' class='btn btn-success btn-sm'>View Fees Invoice</button> ";
+            echo "<td><button id='btnViewInvoice' title='View Fees Tax Invoice' onclick='viewInvoice( " . json_encode($data) . " )' data-toggle='modal' data-target='#invoiceModalCenter' class='btn btn-success btn-sm'>View Invoice</button> ";
         } else {
-            echo "<td><button id='btnGenerateInvoice' title='Generate Fees Tax Invoice' onclick='generateInvoice( " . json_encode($data) . " )' class='btn btn-primary btn-sm'>Generate Fees Invoice</button> ";
+            echo "<td><button id='btnGenerateInvoice' title='Generate Fees Tax Invoice' onclick='generateInvoice( " . json_encode($data) . " )' class='btn btn-primary btn-sm'>Generate Invoice</button> ";
 
         }
 
         if ($has_invoiceAll == 1) {
             echo " <button title='View Fees Tax Invoice for All' onclick='viewInvoiceALL( " . json_encode($data) . " )'
                   data-toggle='modal' data-target='#invoiceModalCenter'
-                  class='btn btn-success btn-sm'>View Fees Invoice All </button>"
+                  class='btn btn-success btn-sm'>View Invoice All </button>"
                 . "</td></tr>";
         } else {
             echo " <button title='Generate Fees Tax Invoice for All' onclick='generateInvoiceALL( " . json_encode($data) . " )'   
-                  class='btn btn-primary btn-sm'>Generate Fees Invoice All </button>"
+                  class='btn btn-primary btn-sm'>Generate Invoice All </button>"
                 . "</td></tr>";
         }
 
